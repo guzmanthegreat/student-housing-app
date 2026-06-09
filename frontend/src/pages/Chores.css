@@ -1,0 +1,79 @@
+h1.chore-title{
+    font-family: "Barbie", "Dollie Script", serif;
+    color: black !important;
+    margin-top: 50px !important;
+    font-size: 5rem !important;
+    text-shadow: 2px 2px 0px #ffffff !important;
+}
+
+.create-chore-btn{
+    position: absolute;    
+    background-color: #fad8de; 
+    top: 100px;              
+    right: 70px;  
+    padding: 50px;
+    border-color: #f93e83;
+    border-width: 2px;
+    padding-bottom: 60px;
+    border-radius: 10px;   
+    color: #333;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 2.2rem;
+    font-family: "Oregano", serif;
+    box-shadow: 4px 4px 6px rgba(0,0,0,0.2); /* depth */
+    transform: rotate(6deg);      /* tilt it */
+    transition: transform 0.2s;    /* smooth hover */
+    cursor: pointer;
+}
+
+/* optional: small hover effect */
+.create-chore-btn:hover {
+  transform: rotate(0deg);       /* straighten slightly on hover */
+  box-shadow: 6px 6px 8px rgba(0,0,0,0.3);
+  border-color: white;
+  border-width: 2px;
+}
+
+.filter-btn{
+    background-color: rgb(255, 255, 255) !important; 
+    font-family: "Oregano", serif!important;
+    font-size: 1.4rem!important;
+    box-shadow: 3px 3px 0 black;
+    transition: transform 0.2s ease!important;
+}
+
+.filter-btn:hover{
+    transform: scale(1.05)!important;
+}
+
+.filter-btn.active{
+    background-color: #ffabc6!important;
+    color: white!important;
+    border: none;
+}
+
+.filter-container{
+    background-color: #ef6195;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.chore-container{
+    all: unset;
+}
+
+.filter-container span{
+    font-family: 'Oregano', serif;
+    font-size: 1.8rem;
+    color:white;
+}
+/* 
+ * {
+  outline: 1px dashed red;
+}  */
+
+body {
+  background-color: #ffabc6;
+  padding-bottom: 50px;
+}

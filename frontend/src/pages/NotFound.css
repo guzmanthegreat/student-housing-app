@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Dollie Script";
+  src: url("../assets/Dollie-Script.ttf") format("truetype");
+}
+
+.not-found h1{
+    font-size: 250px;
+    padding-left: 520px;
+    font-family: "Barbie", 'Dollie Script';
+    font-weight: 800;
+    margin-top: 130px;
+    text-shadow: 3px 3px #fff;
+    color: #e43173;
+}
+
+.not-found p{
+    padding-left: 570px;
+    font-size: 30px;
+    font-family: "Barbie", 'Dollie Script';
+    font-weight: 800;
+    color: #000;
+    margin-top: 20px;
+}

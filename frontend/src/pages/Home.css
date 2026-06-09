@@ -1,0 +1,183 @@
+/* Layout */
+.home-page {
+    min-height: calc(100dvh - 56px); 
+    background: #f8a7c1;            
+    display: grid;
+    gap: 3rem;
+    padding: clamp(16px, 4vw, 48px);
+  }
+  
+
+  .home-hero {
+    text-align: center;
+    margin-inline: auto;
+    max-width: 1000px;
+  }
+  
+  .home-hero h1 {
+    font-size: clamp(38px, 12vw, 100px);
+    font-family: "Barbie", "Dollie Script", serif;
+    font-weight: 800;
+    line-height: .9;
+    color: #e43173;
+    text-shadow: 3px 3px #fff;
+    margin: 1rem 0 .5rem;
+  }
+  
+
+  .cta-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  
+  .submit-container {
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+    gap: 30px;
+    margin: 60px auto;
+    text-decoration: none;     
+  }
+  
+  .submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 65px;
+    border-radius: 50px;
+    font-size: 22px;
+    font-family: "Barbie", "Dollie Script";
+    font-weight: 1000;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+    box-shadow: 4px 4px #000;
+    border: none;
+    text-decoration: none;     
+  }
+  
+  /* Primary (pink) */
+  .submit.primary {
+    background: #e43173;
+    color: #fff;
+  }
+  
+  /* Secondary (white) */
+  .submit.secondary {
+    background: #e43173;
+    color: #fff;
+  }
+  
+
+  .submit.primary:hover {
+    background: #fff;
+    color: #e43173;
+  }
+  
+  .submit.secondary:hover {
+    background: #ffffff;
+    color: #e43173;
+  }
+  
+  /* Pressed effect */
+  .submit:active {
+    transform: translateY(3px);
+    box-shadow: 1px 1px #000;
+  }
+  
+  .quote {
+    position: relative;
+    margin: 30px auto 0;
+    max-width: 500px;
+    background: #f6cad7;           
+    border: 1px solid #e43173;
+    border-radius: 4px;
+    padding: 28px 30px;
+    font-size: clamp(16px, 2.2vw, 20px);
+    color: #5b0d2a;
+    box-shadow:
+      2px 2px 4px rgba(0,0,0,0.2),
+      6px 6px 10px rgba(0,0,0,0.15); 
+    transform: rotate(-1.5deg);   
+    font-family: "Barbie", "Dollie Script";
+  }
+  
+  /* The sticky tape strips */
+  .quote::before,
+  .quote::after {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 20px;
+    background: #e43173;
+    opacity: 0.9;
+    top: -10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  .quote::before {
+    left: 15%;
+    transform: rotate(-10deg);
+  }
+  
+  .quote::after {
+    right: 15%;
+    transform: rotate(8deg);
+  }
+  
+  /* Quick links */
+  .quick-links {
+    margin-inline: auto;
+    max-width: 1100px;
+  }
+  
+  .quick-links h2 {
+    text-align: center;
+    color: #5b0d2a;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+  
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  
+  .card {
+    background: rgba(255,255,255,.75);
+    border: 1px solid rgba(255,255,255,.6);
+    border-radius: 18px;
+    padding: 16px 18px;
+    text-decoration: none;
+    color: #5b0d2a;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    transition: transform .12s ease, box-shadow .2s ease;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 36px rgba(0,0,0,.12);
+  }
+  .card-title { font-weight: 800; margin-bottom: 6px; }
+  .card-desc  { opacity: .85; }
+  
+  .carousel-swiper {
+    margin: 2rem auto;
+    width: min(90%, 900px);
+    aspect-ratio: 16 / 9;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  }
+  
+  /* Make slides fill the box */
+  .carousel-swiper .slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }

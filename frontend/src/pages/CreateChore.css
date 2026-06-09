@@ -1,0 +1,86 @@
+.create-chore-title{
+    font-family: 'Barbie', serif!important;
+    color: #e43173;
+    font-size: 5rem;
+    text-shadow: 2px 2px 0 white;
+    margin: 20px;
+    margin-bottom: 30px;
+}
+
+.create-chore-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* horizontal center */
+    align-items: center;     /* vertical center */
+       
+}
+
+.input-container{
+    background-color: #f9d8de;
+}
+.form-label{
+    font-family: 'Oregano', serif;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+}
+
+.chore-input input::placeholder, .chore-input textarea::placeholder{
+    font-family: 'Oregano', serif!important;
+    font-size: 22px;
+    color: rgb(162, 149, 156)
+}
+
+.submit-chore-btn{
+    background-color: #e43173!important;
+    padding: 1.1rem!important;
+    padding-left:30px!important;
+    padding-right: 30px!important;
+    font-family: 'Barbie', serif!important;
+    font-size: 1.5rem!important;
+    box-shadow: 4px 4px 0 black;
+    border: none!important;
+    transition: transform 0.2s ease!important;
+}
+
+.submit-chore-btn:hover{
+    background-color: #f878a7!important;
+    transform: scale(1.05)!important;
+}
+
+.chore-input input,
+.chore-input textarea {
+  height: 50px;
+  font-size: 1.2rem; /* makes text bigger too */
+}
+
+.chore-input textarea {
+  height: 150px;
+}
+
+.error-message{
+    margin-top: 50px;
+    margin-bottom: -1px;
+  color: #e43173;            
+  font-size: 1.6rem;          
+  width: 100%;
+  text-align: center;
+  font-family: 'Oregano', serif;
+}
+
+.back-button{
+    position: absolute;
+    top: 85px;
+    left: 30px;
+    border-radius: 4px;
+    padding: 1.3rem;
+    font-family: 'Oregano', serif;
+    background-color: #e43173;
+    font-size: 1.5rem;
+    box-shadow: 4px 4px 6px rgba(0,0,0,0.2); /* depth */
+    transition: transform 0.2s;
+}
+
+.back-button:hover{
+  box-shadow: 6px 6px 8px rgba(0,0,0,0.3);
+  border: 2px solid #e43173
+}

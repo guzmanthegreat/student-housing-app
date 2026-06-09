@@ -1,0 +1,115 @@
+@font-face {
+  font-family: 'Nothing You Could Do';
+  src: url('../assets/NothingYouCouldDo-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Oregano';
+  src: url('../assets/Oregano-Regular.ttf') format('truetype');
+}
+.card{
+    all:unset;
+}
+
+.card.choreCard{
+    background-color: lightgoldenrodyellow;
+     background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 1.8rem, /* space between lines */
+    #aaa 1.9rem           /* line thickness */
+  );
+
+  font-family: "Nothing You Could Do", serif;
+  font-size: 1.6rem;
+  padding:0;
+  text-align: center;
+}
+
+.card.choreCard .card-title {
+  font-family: "Oregano", serif;
+  font-size: 2.5rem;
+  color: #e43173;
+  margin-bottom: 23px;
+  position: relative;
+  top: 5px;
+  text-align: left;
+  padding-left: 18px;
+}
+
+.checkbox{
+    width: 50px;          
+    height: 50px;
+    border: 2px solid black; 
+    border-radius: 4px;    
+    background-color: transparent; 
+    position: absolute;     
+    top: 24px;              
+    right: 35px;   
+}
+
+.checkbox-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px; /* adjust size */
+  height: 80px;
+  pointer-events: none; /* click goes through to button */
+  transform: translate(-50%, -50%) rotate(-15deg);
+}
+
+.delete-btn{
+  position:absolute;
+  width: 50px;             
+  height: 50px;            
+  border-radius: 50%;     
+  border: none;            
+  background-color: transparent;  
+  border: 2px solid black;
+  display: flex;         
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;       
+  padding: 0;    
+  transition: background-color 0.3s ease; 
+  overflow: visible;   
+  box-shadow: none;  
+  left: 10px!important;
+  bottom: 10px!important;
+}
+
+ .edit-btn{
+   position:absolute;
+  width: 50px;             
+  height: 50px;            
+  border-radius: 50%;     
+  border: none;            
+  background-color: transparent;  
+  border: 2px solid black;
+  display: flex;         
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;       
+  padding: 0;    
+  transition: background-color 0.3s ease; 
+  overflow: visible;  
+  left: 78px;
+  bottom: 10px;
+  box-shadow: none;
+ }
+
+.delete-btn img, .edit-btn img{
+  height: 30px;
+  width: 30x;
+}
+
+.delete-btn:hover{
+  background-color: #e43173;
+  border: 2px solid black;
+}
+
+.edit-btn:hover{
+  background-color: #f9a5be;
+  border: 2px solid black;
+}
+

@@ -1,0 +1,278 @@
+
+@font-face {
+  font-family: "Oregano";
+  src: url("./assets/Oregano-Regular.ttf") format("truetype");
+}
+
+.bills-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: "Barbie", "Dollie Script", serif;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  border: 4px dashed #f9a5be;
+}
+
+.page-title {
+  color: #e43173;
+  font-size: 3rem;
+  text-align: center; 
+  font-weight: bold;
+  margin-bottom: 3rem;
+  text-shadow: 1.5px 1.5px #f9a5be;
+  padding-left: 3rem; 
+}
+
+.upload-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* small space between file input and upload button */
+  margin-bottom: 4rem;
+}
+
+/* File input container */
+.upload-container input[type="file"] {
+  width: auto; /* no stretching */
+  max-width: 250px;
+  color: #e43173;
+  background-color: #fce4ec;
+  border: 2px solid #e7638b;
+  border-radius: 6px;
+  padding: 0.5rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.upload-container input[type="file"]::file-selector-button {
+  background-color: #e43173;
+  color: white;
+  border: 2px solid #ad1b51;
+  border-radius: 6px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+
+.upload-container input[type="file"]::file-selector-button:hover {
+  background-color: #ad1b51;
+}
+
+/* Upload button to the right */
+.upload-button {
+  background-color: #e7638b;
+  color: white;
+  font-weight: bold;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 2px solid #ad1b51;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.upload-button:hover {
+  background-color: #e43173;
+}
+
+/* Hide the “No file chosen” text outside the buttons */
+.upload-container input[type="file"]::-webkit-file-upload-text {
+  display: none;
+}
+
+.upload-container input[type="file"]::-webkit-file-upload-text {
+  display: none;
+}
+
+.thumbnail {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 6px;
+  border: 2px dashed #ad1b51;
+}
+
+.bill-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* spread icon+title left, total right */
+  background-color: #eda6bc;
+  border: 2px solid #c44d75;
+  border-radius: 12px;
+  padding: 14px 24px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* Icon stays left */
+.receipt-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  filter: invert(20%) sepia(60%) saturate(300%) hue-rotate(-20deg);
+}
+
+/* Title and total layout */
+.bill-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* pushes total all the way right */
+  flex: 1;
+}
+
+/* Text styles */
+.bill-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #9b1045;
+  margin-left: 12px; /* spacing between icon and title */
+}
+
+.no-bills {
+  font-size: 18px;
+  font-weight: 700;
+  color: #9b1045;
+}
+
+.bill-total {
+  font-size: 20px;
+  color: #000;
+  font-weight: 700;
+  margin-left: auto;
+}
+
+.split-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.split-modal {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 4px dashed #f9a5be;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  font-family: "Barbie", "Dollie Script", serif;
+  position: relative;
+  text-align: center;
+}
+
+.split-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  background: #fce4ec;
+  border: 2px solid #e7638b;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  color: #9b1045;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease;
+}
+
+.split-close:hover {
+  background: #e43173;
+  border-color: #ad1b51;
+  color: white;
+}
+
+.split-modal h2 {
+  color: #e43173;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  /* text-shadow: 1px 1px #ad1b51; */
+}
+
+.split-bill-name {
+  color: #9b1045;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.split-total {
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+}
+
+.split-label {
+  color: #9b1045;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: left;
+  display: block;
+  margin-top: 1rem;
+}
+
+.split-input {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 2px solid #e7638b;
+  background-color: #fce4ec;
+  color: #9b1045;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+}
+
+.split-input:focus {
+  border-color: #e43173;
+}
+
+.split-button {
+  margin-top: 1.5rem;
+  padding: 10px 16px;
+  border: 2px solid #ad1b51;
+  cursor: pointer;
+  background-color: #e7638b;
+  color: white;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: 0.2s ease;
+}
+
+.split-button:hover {
+  background-color: #e43173;
+}
+
+.split-error {
+  margin-top: 0.8rem;
+  color: #ad1b51;
+  font-weight: bold;
+}
+
+.upload-error {
+  margin-top: 0.8rem;
+  color: #ad1b51;
+  font-weight: bold;
+}
+
+.split-result {
+  margin-top: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #e43173;
+  /* text-shadow: 1px 1px #ad1b51; */
+}
