@@ -1,9 +1,9 @@
 # 🏠 Student Housing Web Application 
 
-This repository contains our project for the **sheCodes Semester Long Project (SLP) 2025-26, Full Stack Track**.  
+This repository contains a full stack project for the web app Roomies.  
 
 ### **Project Overview** 
-**House of Plastics** is a Student Housing Companion Web Application to improve the living experience with roommates, by preventing conflict and making everything more organized and stress-free.  
+**Roomies** is a Student Housing Companion Web Application to improve the living experience with roommates, by preventing conflict and making everything more organized and stress-free.  
 
 ---
 
@@ -34,8 +34,8 @@ This repository contains our project for the **sheCodes Semester Long Project (S
 ### Setup  
 ```bash
 # Clone the repository
-git clone https://github.com/CPP-SheCodes-SLP-2025-26/fullstack.git
-cd fullstack
+git clone https://github.com/guzmanthegreat/student-housing-app.git
+cd student-housing-app
 
 # Install dependencies
 npm install
