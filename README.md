@@ -1,4 +1,4 @@
-# 🏠 Student Housing App — sheCodes SLP 2025-26  
+# 🏠 Student Housing Web Application 
 
 This repository contains our project for the **sheCodes Semester Long Project (SLP) 2025-26, Full Stack Track**.  
 
@@ -12,21 +12,6 @@ This repository contains our project for the **sheCodes Semester Long Project (S
 - **Bill Splitter** — Upload an image of a receipt to get the total and divide it between roommates for tracking shared expenses 
 - **Calendar** — manage events and reminders  
 -  *Stretch Features:* shared grocery list, guest tracker, and notifications  
-
-📍 **Demo Day:** Sunday, November 16th, 2025 @ BSC Ursa Minor (10:00 AM – 2:00 PM)  
-
----
-
-## Team  
-
-- **Lead:** Areesha Imtiaz  
-- **Members:**  
-  - Gloriele Mendoza
-  - Josh Guzman  
-  - Roshan Karimi  
-  - Sarah Huynh  
-  - Natalie Mamikonyan  
-  - Ayla Santos  
 
 ---
 
