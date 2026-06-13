@@ -2,3 +2,4 @@ node_modules/
 .env
 backend/uploads/profile_pictures/*
 .DS_Store
+database/init.sql
