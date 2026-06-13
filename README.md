@@ -1,60 +1,64 @@
-# 🏠 Student Housing Web Application 
+# 🏠 Roomies — Student Housing Web Application
 
-This repository contains a full stack project for the web app Roomies.  
+A full-stack roommate management app to reduce conflict and keep shared living organized.
 
-### **Project Overview** 
-**Roomies** is a Student Housing Companion Web Application to improve the living experience with roommates, by preventing conflict and making everything more organized and stress-free.  
+## Features
 
----
+- **Chore Tracker** — assign and track household tasks
+- **Bill Splitter** — upload a receipt image to split expenses between roommates
+- **Calendar** — manage shared events and reminders
+- **Authentication** — Google OAuth for secure login
 
-### Core Features  
-- **Chore Tracker** — assign and complete household tasks  
-- **Bill Splitter** — Upload an image of a receipt to get the total and divide it between roommates for tracking shared expenses 
-- **Calendar** — manage events and reminders  
--  *Stretch Features:* shared grocery list, guest tracker, and notifications  
+## Tech Stack
 
----
+- **Frontend:** React, Vite, CSS
+- **Backend:** Node.js, Express
+- **Database:** MySQL
+- **Auth:** Google OAuth
+- **APIs:** Google API, Veryfi API
+- **DevOps:** Docker, Docker Compose
 
-## Technologies Used 
+## Getting Started
 
-- **Frontend:** React, CSS, Vite    
-- **Backend:** Node.js + Express 
-- **Database:** MySQL  
-- **Authentication:** Google OAuth
-- **API's:** Google API, Veryfi API 
+### Prerequisites
 
----
+- Docker Desktop
 
-## Getting Started  
+### Setup
 
-### Prerequisites  
-- Node.js 20+  
-- Git + GitHub account  
+1. Clone the repo
 
-### Setup  
 ```bash
-# Clone the repository
-git clone https://github.com/guzmanthegreat/student-housing-app.git
-cd student-housing-app
+   git clone https://github.com/guzmanthegreat/student-housing-app.git
+   cd student-housing-app
+```
 
-# Install dependencies
-npm install
+2. Create your environment file
 
-# Copy environment variables
-cp .env.example .env
+```bash
+   cp backend/.env.example backend/.env
+```
 
-# Run the application locally
-npm run dev
+Fill in your credentials in `backend/.env`
 
-```   
+3. Start the app
 
----
+```bash
+   docker-compose up
+```
 
-### Figma Design
-[Link Here](https://www.figma.com/design/BCoKbG9Ufkkairu1vrSdL1/sheCodes-fullStack-Figma?node-id=0-1&p=f&t=VWx5kgCiAMxyJaZj-0)
-### Video Demo
-[Link Here](https://youtu.be/cL8MffrC0oE)  
+4. Open [http://localhost:5173](http://localhost:5173)
 
----
+### Stop the app
 
+```bash
+docker-compose down
+```
 
+## Design
+
+[Figma](https://www.figma.com/design/BCoKbG9Ufkkairu1vrSdL1/sheCodes-fullStack-Figma?node-id=0-1&p=f&t=VWx5kgCiAMxyJaZj-0)
+
+## Demo
+
+[Video Walkthrough](https://youtu.be/cL8MffrC0oE)
