@@ -41,13 +41,19 @@ A full-stack roommate management app to reduce conflict and keep shared living o
 
 Fill in your credentials in `backend/.env`
 
-3. Start the app
+3. Set up Google OAuth
+   - Go to [console.cloud.google.com](https://console.cloud.google.com)
+   - Create a project and set up OAuth credentials
+   - Add `http://localhost:3000/api/auth/google/callback` as an authorized redirect URI
+   - Copy your Client ID and Client Secret into `backend/.env`
+
+4. Start the app
 
 ```bash
    docker-compose up
 ```
 
-4. Open [http://localhost:5173](http://localhost:5173)
+5. Open [http://localhost:5173](http://localhost:5173)
 
 ### Stop the app
 
