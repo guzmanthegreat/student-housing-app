@@ -10,35 +10,34 @@ import "swiper/css/effect-fade";
 
 import "./Home.css";
 
-import fetchImg from "../assets/fetch.png";
-import motivImg from "../assets/motivation.png";
-import snoopyImg from "../assets/snoopy.png";
+import roommate1 from "../assets/roommate1.jpg";
+import roommate2 from "../assets/roommate2.jpg";
+import roommate3 from "../assets/roommate3.jpg";
 
 export default function Home() {
   const user = JSON.parse(localStorage.getItem("session") || "null");
 
   const quotes = useMemo(
     () => [
-      "Teamwork makes the dream work!",
+      "Home is whoever you share it with.",
       "Clean space, clear mind",
-      "Little chores, big vibes.",
+      "Your home, your rules, your people.",
       "A tidy home is a happy home.",
     ],
     []
   );
   const quote = quotes[new Date().getDate() % quotes.length];
 
-  // Put your images in /public/images/
   const images = [
-    { src: fetchImg, alt: "Fetch image" },
-    { src: motivImg, alt: "motivation image" },
-    { src: snoopyImg, alt: "snoopy image" },
-  ];
+    { src: roommate1, alt: "Roommates chilling in their apartment" },
+    { src: roommate2, alt: "Roommates reading and hanging out" },
+    { src: roommate3, alt: "Roommates having fun together" },
+];
 
   return (
     <main className="home-page">
       <section className="home-hero">
-        <h1>Come Sit With Us!</h1>
+        <h1>Join Roomies Today!</h1>
 
         <div className="carousel-swiper">
           <Swiper
@@ -63,10 +62,10 @@ export default function Home() {
           ) : (
             <div className="submit-container">
               <Link className="submit secondary" to="/signup">
-                Join The Plastics!
+                Sign up
               </Link>
               <Link className="submit primary" to="/login">
-                Get In Loser!
+                Login
               </Link>
             </div>
           )}

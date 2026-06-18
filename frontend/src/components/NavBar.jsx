@@ -13,6 +13,9 @@ export default function Navbar({ session,onLogout }) {
 
   return (
     <nav className="navbar">
+      <div className="navbar-brand">
+        <Link to="/home">Roomies</Link>
+      </div>
       <div className="navbar-links">
         <Link to="/home">Home</Link>
         {session && <Link to="/dashboard">Dashboard</Link>}
