@@ -2,7 +2,7 @@
 
 Roomies is a full-stack web app built for college roommates. Track chores, split bills, manage a shared calendar, and keep the house running without the group chat drama.
 
----
+## ![Roomies App Screenshot](frontend/public/landingpage.png)
 
 ## Features
 
