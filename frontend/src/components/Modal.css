@@ -12,8 +12,8 @@
 }
 
 .modal-content {
-  background-color: #ffe9ea!important;
-  color: #000000;
+  background-color: var(--paper)!important;
+  color: var(--ink);
   font-family: 'Oregano', serif;
   padding: 5rem;
   border-radius: 10px!important;
@@ -32,8 +32,8 @@
 }
 
 .cancel-btn {
-  background-color: #e43173;
-  color: white;
+  background-color: var(--primary);
+  color: var(--ink);
   box-shadow: 2px 2px 0 black;
   border: none;
   border-radius: 6px;

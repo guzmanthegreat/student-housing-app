@@ -1,22 +1,22 @@
 h1.chore-title{
     font-family: "Barbie", "Dollie Script", serif;
-    color: black !important;
+    color: var(--text) !important;
     margin-top: 50px !important;
     font-size: 5rem !important;
-    text-shadow: 2px 2px 0px #ffffff !important;
+    text-shadow: 2px 2px 0px var(--ink) !important;
 }
 
 .create-chore-btn{
     position: absolute;    
-    background-color: #fad8de; 
+    background-color: var(--text); 
     top: 100px;              
     right: 70px;  
     padding: 50px;
-    border-color: #f93e83;
+    border-color: var(--primary);
     border-width: 2px;
     padding-bottom: 60px;
     border-radius: 10px;   
-    color: #333;
+    color: var(--ink);
     border-radius: 4px;
     font-weight: bold;
     font-size: 2.2rem;
@@ -48,19 +48,23 @@ h1.chore-title{
 }
 
 .filter-btn.active{
-    background-color: #ffabc6!important;
-    color: white!important;
+    background-color: var(--primary)!important;
+    color: var(--ink)!important;
     border: none;
 }
 
 .filter-container{
-    background-color: #ef6195;
+    background-color: var(--surface);
     padding: 15px;
     border-radius: 10px;
 }
 
 .chore-container{
     all: unset;
+    display: block;
+    min-height: 100vh;
+    background-color: var(--bg);
+    padding-bottom: 50px;
 }
 
 .filter-container span{
@@ -74,6 +78,6 @@ h1.chore-title{
 }  */
 
 body {
-  background-color: #ffabc6;
+  background-color: var(--bg);
   padding-bottom: 50px;
 }

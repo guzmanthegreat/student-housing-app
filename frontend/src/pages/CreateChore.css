@@ -1,8 +1,8 @@
 .create-chore-title{
     font-family: 'Barbie', serif!important;
-    color: #e43173;
+    color: var(--text);
     font-size: 5rem;
-    text-shadow: 2px 2px 0 white;
+    text-shadow: 2px 2px 0 var(--ink);
     margin: 20px;
     margin-bottom: 30px;
 }
@@ -12,26 +12,32 @@
     flex-direction: column;
     justify-content: center; /* horizontal center */
     align-items: center;     /* vertical center */
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--bg);
+    padding-bottom: 50px;
        
 }
 
 .input-container{
-    background-color: #f9d8de;
+    background-color: var(--paper);
+    border: 1px solid var(--accent);
 }
 .form-label{
     font-family: 'Oregano', serif;
-    color: rgb(0, 0, 0);
+    color: var(--ink);
     font-size: 30px;
 }
 
 .chore-input input::placeholder, .chore-input textarea::placeholder{
     font-family: 'Oregano', serif!important;
     font-size: 22px;
-    color: rgb(162, 149, 156)
+    color: var(--text-muted)
 }
 
 .submit-chore-btn{
-    background-color: #e43173!important;
+    background-color: var(--primary)!important;
+    color: var(--ink)!important;
     padding: 1.1rem!important;
     padding-left:30px!important;
     padding-right: 30px!important;
@@ -43,7 +49,8 @@
 }
 
 .submit-chore-btn:hover{
-    background-color: #f878a7!important;
+    background-color: var(--accent)!important;
+    color: var(--text)!important;
     transform: scale(1.05)!important;
 }
 
@@ -60,7 +67,7 @@
 .error-message{
     margin-top: 50px;
     margin-bottom: -1px;
-  color: #e43173;            
+  color: #b42318;            
   font-size: 1.6rem;          
   width: 100%;
   text-align: center;
@@ -74,7 +81,8 @@
     border-radius: 4px;
     padding: 1.3rem;
     font-family: 'Oregano', serif;
-    background-color: #e43173;
+    background-color: var(--primary);
+    color: var(--ink);
     font-size: 1.5rem;
     box-shadow: 4px 4px 6px rgba(0,0,0,0.2); /* depth */
     transition: transform 0.2s;
@@ -82,5 +90,5 @@
 
 .back-button:hover{
   box-shadow: 6px 6px 8px rgba(0,0,0,0.3);
-  border: 2px solid #e43173
+  border: 2px solid var(--accent)
 }

@@ -3,11 +3,11 @@
   flex-direction: column;
   margin: auto;
   margin-top: 20px;
-  background: #e7638b;     
+  background: var(--surface);     
   padding-bottom: 30px;
   height: 710px;
   border-radius: 100px;
-  box-shadow: 10px 10px #ad1b51;
+  box-shadow: 10px 10px var(--ink);
   width: 900px;
 }
 
@@ -50,7 +50,7 @@
   margin: auto;
   width: 480px;
   height: 80px;
-  background: #e7638b;
+  background: var(--surface);
   border-radius: 6px;
   font-family: 'Freshman', serif;
 }
@@ -103,9 +103,9 @@
   align-items: center;
   width: 220px;
   height: 59px;
-  color: #ffffff;
+  color: var(--ink);
   font-weight: 1000;
-  background: #e43173;
+  background: var(--primary);
   border-radius: 50px;
   font-size: 19px;
   cursor: pointer;
@@ -114,8 +114,8 @@
 }
 
 .gil-auth .submit.gray {
-  background: #ffffff;
-  color: #000000;
+  background: var(--paper);
+  color: var(--ink);
 }
 
 .login-error {

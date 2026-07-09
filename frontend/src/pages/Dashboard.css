@@ -7,7 +7,7 @@ works for everyone else too */
   height: 100%;
   margin: 0;
   padding: 0;
-  background: #f8a7c1;
+  background: var(--bg);
 } */
 
 .dashboard {
@@ -17,15 +17,15 @@ works for everyone else too */
   min-height: 100vh;
   align-items: flex-start; /* <-- makes all 3 columns same height */
   padding: 20px;
-  background: #f8a7c1; /* same base background as home page */
+  background: var(--bg);
   font-family: "Barbie", "Dollie Script", serif;
   padding-top: 30px;  /* uniform top spacing */
 }
 
 /* Sidebar (left) */
 .sidebar {
-  background-color: #e43173;
-  color: #fff;
+  background-color: var(--surface);
+  color: var(--text);
   width: 250px;
   padding-bottom: 68px;
   border-radius: 18px;
@@ -41,7 +41,7 @@ works for everyone else too */
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background-color: #ad1b51;
+  background-color: var(--accent);
   margin-bottom: 10px;
   margin-top: 30px;
 
@@ -107,8 +107,8 @@ works for everyone else too */
 
 
 .nav-menu li:hover {
-  background-color: #f8b5cc;
-  color: #5b0d2a;
+  background-color: var(--primary);
+  color: var(--ink);
   transform: translateY(-3px);
   box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
@@ -130,15 +130,15 @@ works for everyone else too */
   width: 70%;
   max-width: 600px;
   margin: 50px auto 0 auto; /* top margin + center */
-  background: rgba(255,255,255,.85);
-  border: 1px solid rgba(255,255,255,.6);
+  background: var(--paper);
+  border: 1px solid var(--accent);
   border-radius: 18px;
   padding: 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  color: #000;
+  color: var(--ink);
   box-shadow: 0 10px 30px rgba(0,0,0,.08);
   min-height: 589px;  /* restored original height for chore list */
 }
@@ -148,7 +148,7 @@ works for everyone else too */
   font-family: "Barbie", "Dollie Script", serif;
   font-weight: 800;
   margin-bottom: 12px;
-  color: #5b0d2a;
+  color: var(--ink);
 }
 
 /* ====== Chore list styling ====== */
@@ -166,16 +166,16 @@ works for everyone else too */
 .chore-empty {
   margin-top: 40px;
   font-size: 18px;
-  color: #b23a63;
+  color: var(--accent);
 }
 
 /* individual chore “card” */
 .chore-item {
-  background: #ffeaf3;
+  background: var(--text);
   border-radius: 14px;
   padding: 12px 16px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-  border: 1px solid rgba(255,255,255,0.8);
+  border: 1px solid var(--accent);
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -195,7 +195,7 @@ works for everyone else too */
 
 .chore-dot {
   font-size: 20px;
-  color: #e43173; /* pink bullet */
+  color: var(--accent);
   margin-top: -1px;
 }
 
@@ -208,12 +208,12 @@ works for everyone else too */
 .chore-name {
   font-size: 18px;
   font-weight: 700;
-  color: #5b0d2a;
+  color: var(--ink);
 }
 
 .chore-room {
   font-size: 14px;
-  color: #a24a6c;
+  color: var(--accent);
 }
 
 .chore-meta-row {
@@ -225,7 +225,7 @@ works for everyone else too */
 }
 
 .chore-due {
-  color: #7b2345;
+  color: var(--ink);
 }
 
 .chore-status {
@@ -238,8 +238,8 @@ works for everyone else too */
 }
 
 .chore-status.pending {
-  background: #ffd0e1;
-  color: #b01854;
+  background: var(--primary);
+  color: var(--ink);
 }
 
 .chore-status.done {
@@ -251,7 +251,7 @@ works for everyone else too */
 .underline2 {
   width: 61px;
   height: 6px;
-  background: #5b0d2a;
+  background: var(--primary);
   border-radius: 9px;
   margin-left: 0; /* align with center better */
   margin: 0 auto 20px auto;
@@ -272,19 +272,19 @@ works for everyone else too */
 .divider {
   text-align: center;
   font-size: 32px;     
-  color: #e43173;     
+  color: var(--primary);     
   opacity: 0.8;
   transform: rotate(-2deg);
   font-family: "Barbie", "Dollie Script", serif;
 }
 
 .quote-card, .bills-card {
-  background: #f6cad7;
-  border: 1px solid #e43173;
+  background: var(--surface);
+  border: 1px solid var(--accent);
   border-radius: 8px;
   padding: 25px 30px;
   font-size: clamp(16px, 2vw, 20px);
-  color: #5b0d2a;
+  color: var(--text);
   box-shadow:
       2px 2px 4px rgba(0,0,0,0.2),
       6px 6px 10px rgba(0,0,0,0.15);
@@ -298,11 +298,11 @@ works for everyone else too */
  .bills-card span {
   cursor: pointer;
   /* text-decoration: underline; */
-  color: #5b0d2a;
+  color: var(--text);
 }
 
  .bills-card span:hover {
-  color: #e43173;
+  color: var(--primary);
 }
 
 .quote-card::before, .quote-card::after,
@@ -311,7 +311,7 @@ works for everyone else too */
   position: absolute;
   width: 70px;
   height: 20px;
-  background: #e43173;
+  background: var(--primary);
   opacity: 0.9;
   top: -10px;
   border-radius: 4px;
@@ -322,5 +322,3 @@ works for everyone else too */
 .quote-card::after { right: 15%; transform: rotate(8deg); }
 .bills-card::before { left: 15%; transform: rotate(-12deg); }
 .bills-card::after { right: 15%; transform: rotate(10deg); }
-
-

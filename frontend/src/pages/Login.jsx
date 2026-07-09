@@ -6,10 +6,10 @@ import "./Login.css";
 import password_icon from "../assets/password.png";
 import user_icon from "../assets/user.png";
 
-export default function Login({ session, onLogin }) {  
+export default function Login({ session, onLogin }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const [action, setAction] = useState("Get In Loser!");
+  const [action, setAction] = useState("Sign in!");
 
   // Track input fields
   const [username, setUsername] = useState(""); // Must be username for backend login
@@ -39,26 +39,25 @@ export default function Login({ session, onLogin }) {
       const data = await res.json();
 
       if (res.ok) {
-        // Safe check 
+        // Safe check
         if (typeof setSession === "function") {
           setSession(true);
         }
         if (data.userId) {
-			console.log("signup data: ", data)
-			onLogin(data);
-			navigate("/dashboard"); // redirect to dashboard after login
+          console.log("signup data: ", data);
+          onLogin(data);
+          navigate("/dashboard"); // redirect to dashboard after login
           //Store the User ID in local storage for persistence
-          localStorage.setItem('userId', data.userId); 
-          
+          localStorage.setItem("userId", data.userId);
+
           // Pass the ID to the parent state (optional, but good for immediate use)
           if (typeof setUserId === "function") {
             setUserId(data.userId);
           }
         }
       } else {
-
         setErrorMessage(
-          data.error || "Incorrect username or password. Try again!"
+          data.error || "Incorrect username or password. Try again!",
         );
       }
     } catch (err) {
@@ -77,7 +76,7 @@ export default function Login({ session, onLogin }) {
 
         <div className="inputs">
           {/* Name (Sign Up only) */}
-          {action === "Get In Loser!" ? null : (
+          {action === "Sign in!" ? null : (
             <div className="input">
               <img src={user_icon} alt="user" />
               <input type="text" placeholder="Your Full Fetch Name" />
@@ -107,14 +106,10 @@ export default function Login({ session, onLogin }) {
           </div>
 
           {/* inline error message */}
-          {errorMessage && (
-            <div className="login-error">
-              {errorMessage}
-            </div>
-          )}
+          {errorMessage && <div className="login-error">{errorMessage}</div>}
         </div>
 
-        {action === "Join The Plastics!" ? null : (
+        {action === "Create an Account" ? null : (
           <div className="forgot-password">
             Forgot Your Password? Ugh Same. <span>Click Here, Loser!</span>
           </div>
@@ -123,16 +118,18 @@ export default function Login({ session, onLogin }) {
         {/* Buttons */}
         <div className="submit-container">
           <div
-            className={action === "Join The Plastics!" ? "submit gray" : "submit"}
+            className={
+              action === "Create an Account" ? "submit gray" : "submit"
+            }
             onClick={() => navigate("/signup")} // Redirect to signup
           >
-            Join The Plastics!
+            Create an Account
           </div>
           <div
-            className={action === "Get In Loser!" ? "submit gray" : "submit"}
+            className={action === "Sign in!" ? "submit gray" : "submit"}
             onClick={handleLogin} // Call login
           >
-            Get In Loser!
+            Sign in!
           </div>
         </div>
       </div>

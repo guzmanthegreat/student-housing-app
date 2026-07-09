@@ -24,7 +24,7 @@ export default function Home() {
       "Your home, your rules, your people.",
       "A tidy home is a happy home.",
     ],
-    []
+    [],
   );
   const quote = quotes[new Date().getDate() % quotes.length];
 
@@ -32,12 +32,12 @@ export default function Home() {
     { src: roommate1, alt: "Roommates chilling in their apartment" },
     { src: roommate2, alt: "Roommates reading and hanging out" },
     { src: roommate3, alt: "Roommates having fun together" },
-];
+  ];
 
   return (
     <main className="home-page">
       <section className="home-hero">
-        <h1>Join Roomies Today!</h1>
+        <h1>Join UR Roomies Today!</h1>
 
         <div className="carousel-swiper">
           <Swiper

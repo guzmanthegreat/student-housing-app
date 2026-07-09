@@ -1,15 +1,8 @@
-:root {
-  --pink: #f9a5be;
-  --pink-deep: #e43173;
-  --white: #ffffff ;
-  --text: #000000;
-}
-
 .profile-page {
   height: 100dvh;   
   width: 100%;
   margin: 0;
-  background: var(--pink);
+  background: var(--bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,7 +12,7 @@
 
 /* main card layout */
 .profile-card {
-  background: var(--pink);
+  background: var(--bg);
   width: 100vw;
   height: 100dvh;  
   border-radius: 20px;
@@ -47,11 +40,11 @@
 .profile-title {
   grid-area: title;
   text-align: center;
-  text-shadow: 3px 3px #fff;
+  text-shadow: 3px 3px var(--ink);
   /* font-size: clamp(32px, 6vw, 64px); */
   margin: 8px 0 4px;
   font-size: 70px;
-  color: #000000;
+  color: var(--text);
 }
 
 /* columns */
@@ -106,7 +99,7 @@
   border-radius: 50%;
   border: 0;
   cursor: pointer;
-  background: linear-gradient(to bottom, #bdbdbd 0 50%, #e43173 50% 100%);
+  background: linear-gradient(to bottom, #bdbdbd 0 50%, var(--primary) 50% 100%);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
   position: relative;
   display: grid;
@@ -117,7 +110,7 @@
   position: absolute;
   bottom: 18%;
   font-size: 16px;
-  color: #220a18;
+  color: var(--ink);
   text-decoration: underline;
 }
 
@@ -134,7 +127,9 @@
   flex-grow: 1; 
   flex-shrink: 1;
   width: 0;
-  background: var(--white);
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--accent);
   border-radius: 14px;
   padding: 26px 28px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
@@ -154,8 +149,8 @@
   position: static; 
   transform: none;
   border: none;
-  background: var(--pink-deep);
-  color: white;
+  background: var(--primary);
+  color: var(--ink);
   width: 56px;
   height: 56px;
   border-radius: 12px;
@@ -213,7 +208,7 @@
 .popup {
   width: min(640px, 92vw);
   max-height: min(86vh, 760px);
-  background: #e43173;         /* your magenta panel color */
+  background: var(--surface);
   border-radius: 18px;
   box-shadow: 0 20px 60px rgba(0,0,0,.35);
   display: flex;               /* <- important */
@@ -225,7 +220,8 @@
 .popup-title {
   margin: 18px 18px 0;
   padding: 14px 18px;
-  background: #fff;
+  background: var(--paper);
+  color: var(--ink);
   border-radius: 14px;
   text-align: center;
   font-size: clamp(18px, 2.2vw, 28px);
@@ -250,8 +246,8 @@
   gap: 12px;
   justify-content: flex-end;
 
-  /* solid to match the modal panel — no gradient */
-  background: #e43173;                 /* same as your panel color */
+  /* solid to match the modal panel */
+  background: var(--surface);
   border-top: 1px solid rgba(255,255,255,.28);
   box-shadow: 0 -10px 22px rgba(0,0,0,.18);
   padding-bottom: calc(12px + env(safe-area-inset-bottom));
@@ -285,7 +281,9 @@
 }
 
 .field-block {
-  background: #ddd9de;
+  background: var(--bg);
+  border: 1px solid var(--accent);
+  color: var(--text);
   border-radius: 8px;
   padding: 14px;
   margin: 14px 6px;
@@ -303,11 +301,11 @@
   width: 100%;
   border: 0;
   border-radius: 6px;
-  background: #f7f2f6;
+  background: var(--paper);
   padding: 12px 14px;
   font-size: 16px;
   outline: none;
-  color: #000;
+  color: var(--ink);
   box-shadow: inset 0 0 0 1px rgba(0,0,0,.08);
 }
 
@@ -319,14 +317,14 @@
   cursor: pointer;
 }
 .btn.solid {
-  background: var(--pink-deep);
-  color: #fff;
+  background: var(--primary);
+  color: var(--ink);
   box-shadow: 0 6px 16px rgba(0,0,0,.22);
 }
 .btn.solid:disabled { opacity: .55; cursor: not-allowed; }
 .btn.ghost {
-  background: #ffffff;
-  color: var(--text);
+  background: var(--paper);
+  color: var(--ink);
   box-shadow: 0 3px 10px rgba(0,0,0,.12);
 }
 
@@ -345,9 +343,9 @@
     min-width: 300px; 
     max-width: 90%;  
     
-    background-color: #ffebee; 
-    color: #c62828; 
-    border: 1px solid #ef9a9a;
+    background-color: #fff5f5; 
+    color: #b42318; 
+    border: 1px solid #f3b8b8;
     padding: 12px 20px; 
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -359,7 +357,7 @@
 .close-error-btn {
     background: none;
     border: none;
-    color: #c62828;
+    color: #b42318;
     font-size: 20px;
     cursor: pointer;
     margin-left: 15px;
@@ -377,8 +375,8 @@
   display: block;
   width: 100%;
   padding: 20px;
-  background: #ddd9de;
-  border: none;
+  background: var(--bg);
+  border: 1px solid var(--accent);
   border-radius: 10px;
   text-align: center;
   font-size: 18px;
@@ -387,9 +385,9 @@
 }
 
 .popup-file::file-selector-button {
-  background: var(--pink-deep);
+  background: var(--primary);
   border: none;
-  color: white;
+  color: var(--ink);
   padding: 10px 16px;
   border-radius: 8px;
   cursor: pointer;
@@ -404,8 +402,8 @@
 .avatar__hover{
   position:absolute; left:0; right:0; bottom:0; height:50%;
   display:flex; align-items:center; justify-content:center;
-  background: #e43173; 
-  color:#fff; font-weight:700;
+  background: var(--primary); 
+  color: var(--ink); font-weight:700;
   border-bottom-left-radius:50%; border-bottom-right-radius:50%;
   opacity:0; transition:opacity .18s ease; pointer-events:none;
 }
@@ -445,4 +443,3 @@
 .cropper-zoom{ width:100%; display:block; margin:6px auto 14px; }
 
 .path-row{ display:grid; grid-template-columns: 1fr auto; gap:10px; }
-

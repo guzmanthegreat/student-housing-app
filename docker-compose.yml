@@ -18,7 +18,7 @@ services:
   database:
     image: mysql:8
     environment:
-      MYSQL_ROOT_PASSWORD: "@Xamuray357"
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: SHousing
     ports:
       - "3306:3306"

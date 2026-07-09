@@ -1,6 +1,6 @@
 .calendar-page {
   min-height: 100vh;
-  background: #f8a7c1;
+  background: var(--bg);
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -10,7 +10,7 @@
 
 .calendar-card {
   width: min(1100px, 100%);
-  background: #ffeef5;
+  background: var(--paper);
   border-radius: 22px;
   padding: 24px 28px 30px;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
@@ -27,13 +27,13 @@
 .calendar-title {
   margin: 0;
   font-size: clamp(26px, 3vw, 32px);
-  color: #5b0d2a;
+  color: var(--ink);
 }
 
 .calendar-underline {
   width: 80px;
   height: 6px;
-  background: #5b0d2a;
+  background: var(--primary);
   border-radius: 999px;
   margin: 10px 0 20px;
 }
@@ -43,8 +43,8 @@
   border: none;
   padding: 10px 18px;
   border-radius: 999px;
-  background: #e43173;
-  color: #fff;
+  background: var(--primary);
+  color: var(--ink);
   font-weight: 700;
   font-size: 16px;
   cursor: pointer;
@@ -54,7 +54,8 @@
 }
 
 .calendar-create-btn:hover {
-  background-color: #f05b96;
+  background-color: var(--accent);
+  color: var(--text);
   transform: translateY(-2px);
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
 }
@@ -70,7 +71,7 @@
   width: 100%;
   font-size: 28px !important;
   font-weight: 800 !important;
-  color: #5b0d2a !important;
+  color: var(--ink) !important;
   letter-spacing: 0.5px;
   margin-bottom: 8px;
 }
@@ -94,7 +95,8 @@
 
 /* buttons (prev/next/today) */
 .fc .fc-button-primary {
-  background: #e43173 !important;
+  background: var(--primary) !important;
+  color: var(--ink) !important;
   border: none !important;
   border-radius: 999px !important;
   font-weight: 600;
@@ -102,44 +104,45 @@
 }
 
 .fc .fc-button-primary:hover {
-  background: #f05b96 !important;
+  background: var(--accent) !important;
+  color: var(--text) !important;
 }
 
 /* Today button extra style */
 .fc .fc-today-button {
-  color: #fff !important;
+  color: var(--ink) !important;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
 /* days of week */
 .fc .fc-col-header-cell-cushion {
-  color: #5b0d2a !important;
+  color: var(--ink) !important;
   font-weight: 700 !important;
 }
 
 /* day numbers */
 .fc .fc-daygrid-day-number {
-  color: #a24a6c !important;
+  color: var(--accent) !important;
   font-weight: 600;
 }
 
 /* hover on day cells */
 .fc .fc-daygrid-day:hover {
-  background: #ffe6f0 !important;
+  background: var(--text) !important;
   cursor: pointer;
 }
 
 /* today highlight */
 .fc .fc-daygrid-day.fc-day-today {
-  background: #ffe0ec !important;
-  border: 1px solid #e43173 !important;
+  background: var(--text) !important;
+  border: 1px solid var(--primary) !important;
 }
 
-/* events = pink pills */
+/* events */
 .fc .fc-daygrid-event {
-  background: #f8b5cc !important;
+  background: var(--primary) !important;
   border: none !important;
-  color: #5b0d2a !important;
+  color: var(--ink) !important;
   border-radius: 999px !important;
   padding: 2px 8px !important;
   font-size: 13px !important;
@@ -158,7 +161,7 @@
 }
 
 .calendar-modal {
-  background: #ffeef5;
+  background: var(--paper);
   border-radius: 18px;
   padding: 22px 24px 24px;
   width: min(420px, 90%);
@@ -169,7 +172,7 @@
   margin-top: 0;
   margin-bottom: 10px;
   font-size: 22px;
-  color: #5b0d2a;
+  color: var(--ink);
 }
 
 .calendar-form {
@@ -180,7 +183,7 @@
 
 .calendar-form label {
   font-size: 14px;
-  color: #5b0d2a;
+  color: var(--ink);
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -188,15 +191,15 @@
 
 .calendar-form input {
   border-radius: 10px;
-  border: 1px solid #f4b7cf;
+  border: 1px solid var(--accent);
   padding: 8px 10px;
   font-size: 14px;
   outline: none;
 }
 
 .calendar-form input:focus {
-  border-color: #e43173;
-  box-shadow: 0 0 0 2px rgba(228, 49, 115, 0.25);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(143, 188, 90, 0.3);
 }
 
 .calendar-time-row {
@@ -222,22 +225,23 @@
 }
 
 .calendar-primary-btn {
-  background: #e43173;
-  color: #fff;
+  background: var(--primary);
+  color: var(--ink);
 }
 
 .calendar-primary-btn:hover {
-  background: #f05b96;
+  background: var(--accent);
+  color: var(--text);
 }
 
 .calendar-secondary-btn {
   background: #fff;
-  color: #5b0d2a;
-  border: 1px solid #f4b7cf;
+  color: var(--ink);
+  border: 1px solid var(--accent);
 }
 
 .calendar-secondary-btn:hover {
-  background: #ffe2ee;
+  background: var(--text);
 }
 
 .calendar-primary-btn:disabled,
@@ -247,9 +251,7 @@
 }
 
 .calendar-error {
-  /* background: #ffe0ec; */
-  /* border: 1px solid #e43173; */
-  color: #b01854;
+  color: #b42318;
   padding: 8px 14px;
   border-radius: 10px;
   font-size: 15px;   

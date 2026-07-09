@@ -61,8 +61,8 @@ export default function AuthButtons() {
           padding: '10px',
           borderRadius: '6px',
           border: 'none',
-          backgroundColor: '#ff69b4',
-          color: 'white',
+          backgroundColor: 'var(--primary)',
+          color: 'var(--ink)',
           cursor: 'pointer',
         }}
       >

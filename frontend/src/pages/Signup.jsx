@@ -7,10 +7,10 @@ import password_icon from "../assets/password.png";
 import user_icon from "../assets/user.png";
 import room_icon from "../assets/room.png";
 
-export default function JoinPlastics({ session, onLogin }) { 
+export default function JoinPlastics({ session, onLogin }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const action = "Join The Plastics!";
+  const action = "Create an Account!";
 
   // form state
   const [name, setName] = useState("");
@@ -53,7 +53,6 @@ export default function JoinPlastics({ session, onLogin }) {
 
       if (res.ok) {
         onLogin(data);
-        
 
         // clear form
         setName("");
@@ -89,7 +88,7 @@ export default function JoinPlastics({ session, onLogin }) {
             <img src={user_icon} alt="user" />
             <input
               type="text"
-              placeholder="Your Full Fetch Name"
+              placeholder="Full Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -99,7 +98,7 @@ export default function JoinPlastics({ session, onLogin }) {
             <img src={room_icon} alt="room" />
             <input
               type="text"
-              placeholder="Your Fetch Room Number"
+              placeholder="Room Number"
               value={roomNum}
               onChange={(e) => setRoomNum(e.target.value)}
             />
@@ -109,7 +108,7 @@ export default function JoinPlastics({ session, onLogin }) {
             <img src={email_icon} alt="email" />
             <input
               type="email"
-              placeholder="Your Super Secret Email"
+              placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -119,27 +118,25 @@ export default function JoinPlastics({ session, onLogin }) {
             <img src={password_icon} alt="password" />
             <input
               type="password"
-              placeholder={'Your Totally Not "1234" Password'}
+              placeholder={"Password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
           {/* messages */}
-          {errorMessage && (
-            <div className="auth-message">{errorMessage}</div>
-          )}
+          {errorMessage && <div className="auth-message">{errorMessage}</div>}
         </div>
 
         <div className="submit-container">
           {/* actually sign up */}
           <div className="submit" onClick={handleSignup}>
-            Join The Plastics!
+            Submit!
           </div>
 
           {/* go to login */}
           <div className="submit gray" onClick={() => navigate("/login")}>
-            Get In Loser!
+            Sign In!
           </div>
         </div>
       </div>

@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Navbar from "./components/NavBar";
 
 import Home from "./pages/Home";
@@ -53,7 +58,6 @@ export default function App() {
     localStorage.setItem("userId", String(userData.userId));
     localStorage.setItem("room_num", String(userData.room_num));
     localStorage.setItem("username", nameFromUser);
-    
   };
 
   // Called when Logout button clicked
@@ -71,24 +75,17 @@ export default function App() {
 
   return (
     <Router>
-      <Navbar
-        session={session}
-        userId={userId}
-        onLogout={handleLogout}  
-      />
+      <Navbar session={session} userId={userId} onLogout={handleLogout} />
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-
         {/* Protect dashboard so only logged-in users see it */}
         <Route
           path="/dashboard"
           element={
             session ? (
-              <Dashboard
-                userId={userId}
-              />
+              <Dashboard userId={userId} />
             ) : (
               <Navigate to="/login" replace />
             )
@@ -97,20 +94,16 @@ export default function App() {
 
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/chores" element={
-      <Chores
-        userId={userId}
-        room_num={room_num}
-        username={username}
-            />
-        } />
-        <Route path="/create-chore" element={<CreateChore />} />
-        <Route path="/edit-chore" element={<EditChore userId={userId}/>} />
-
         <Route
-          path="/bills"
-          element={<Bills roomNum={room_num} />}  
+          path="/chores"
+          element={
+            <Chores userId={userId} room_num={room_num} username={username} />
+          }
         />
+        <Route path="/create-chore" element={<CreateChore />} />
+        <Route path="/edit-chore" element={<EditChore userId={userId} />} />
+
+        <Route path="/bills" element={<Bills roomNum={room_num} />} />
 
         {/* Login route */}
         <Route
@@ -119,10 +112,7 @@ export default function App() {
             session ? (
               <Navigate to="/dashboard" replace />
             ) : (
-              <Login
-                session={session}
-                onLogin={handleLogin}    
-              />
+              <Login session={session} onLogin={handleLogin} />
             )
           }
         />
@@ -130,12 +120,7 @@ export default function App() {
         {/* Signup route */}
         <Route
           path="/signup"
-          element={
-            <Signup
-              session={session}
-              onLogin={handleLogin}      
-            />
-          }
+          element={<Signup session={session} onLogin={handleLogin} />}
         />
 
         <Route path="*" element={<NotFound />} />

@@ -19,12 +19,12 @@
 .jp-auth .container {
   display: flex;
   flex-direction: column;
-  background: #e7638b;
+  background: var(--surface);
   padding-bottom: 30px;
   min-height: 710px;
   height: auto;
   border-radius: 100px;
-  box-shadow: 10px 10px #ad1b51;
+  box-shadow: 10px 10px var(--ink);
   width: 900px;
 }
 
@@ -42,7 +42,7 @@
   color: #ffffff;
   font-size: 65px;
   font-weight: 1000;
-  font-family: "Barbie", "Dollie Script";
+  font-family: 'Freshman', serif;
   text-shadow: 3px 3px #000;
   text-align: center;
 }
@@ -67,9 +67,9 @@
   margin: auto;
   width: 480px;
   height: 80px;
-  background: #e7638b;
+  background: var(--surface);
   border-radius: 6px;
-  font-family: "Barbie", "Dollie Script";
+  font-family: 'Freshman', serif;
 }
 
 .jp-auth .input img {
@@ -108,19 +108,19 @@
   align-items: center;
   width: 220px;
   height: 59px;
-  color: #ffffff;
+  color: var(--ink);
   font-weight: 1000;
-  background: #e43173;
+  background: var(--primary);
   border-radius: 50px;
   font-size: 19px;
   cursor: pointer;
-  font-family: "Barbie", "Dollie Script";
+  font-family: 'Freshman', serif;
   box-shadow: 3px 3px #000;
 }
 
 .jp-auth .submit.gray {
-  background: #ffffff;
-  color: #000000;
+  background: var(--paper);
+  color: var(--ink);
 }
 
 
@@ -130,6 +130,6 @@
   margin-top: 5px;
   font-size: 1.5rem;
   padding: 6px 10px;
-  font-family: "Oregano";
+  font-family: 'Freshman', serif;
   color: white;
 }

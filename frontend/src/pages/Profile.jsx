@@ -389,7 +389,7 @@ function UsernameForm({ onSave, onCancel }) {
       <FieldBlock label="Enter your new name." error={vErr}>
         <input
           className="popup-input"
-          style={{ color: "var(--text)" }}
+          style={{ color: "var(--ink)" }}
           value={v}
           onChange={(e) => setV(e.target.value)}
           onBlur={() => setTouched(t => ({ ...t, v: true }))}
@@ -399,7 +399,7 @@ function UsernameForm({ onSave, onCancel }) {
       <FieldBlock label="Confirm your new name." error={cErr}>
         <input
           className="popup-input"
-          style={{ color: "var(--text)" }}
+          style={{ color: "var(--ink)" }}
           value={c}
           onChange={(e) => setC(e.target.value)}
           onBlur={() => setTouched(t => ({ ...t, c: true }))}
@@ -436,7 +436,7 @@ function EmailForm({ onSave, onCancel }) {
       <FieldBlock label="Enter your new email." error={vErr}>
         <input
           className="popup-input"
-          style={{ color: "var(--text)" }}
+          style={{ color: "var(--ink)" }}
           type="email"
           value={v}
           onChange={(e) => setV(e.target.value)}
@@ -447,7 +447,7 @@ function EmailForm({ onSave, onCancel }) {
       <FieldBlock label="Confirm your new email." error={cErr}>
         <input
           className="popup-input"
-          style={{ color: "var(--text)" }}
+          style={{ color: "var(--ink)" }}
           type="email"
           value={c}
           onChange={(e) => setC(e.target.value)}
@@ -483,7 +483,7 @@ function RoomNumberForm({ onSave, onCancel }) {
       <FieldBlock label="Enter your new room number." error={vErr}>
         <input
           className="popup-input"
-          style={{ color: "var(--text)" }}
+          style={{ color: "var(--ink)" }}
           value={v}
           onChange={(e) => setV(e.target.value)}
           onBlur={() => setTouched(t => ({ ...t, v: true }))}
@@ -493,7 +493,7 @@ function RoomNumberForm({ onSave, onCancel }) {
       <FieldBlock label="Confirm your new room number." error={cErr}>
         <input
           className="popup-input"
-          style={{ color: "var(--text)" }}
+          style={{ color: "var(--ink)" }}
           value={c}
           onChange={(e) => setC(e.target.value)}
           onBlur={() => setTouched(t => ({ ...t, c: true }))}
@@ -531,7 +531,7 @@ function PasswordForm({ onSave, onCancel }) {
       <FieldBlock label="Enter your old password." error={oldErr}>
         <input
           className="popup-input"
-          style={{ color: "var(--text)" }}
+          style={{ color: "var(--ink)" }}
           type="password"
           value={oldP}
           onChange={(e) => setOldP(e.target.value)}
@@ -542,7 +542,7 @@ function PasswordForm({ onSave, onCancel }) {
       <FieldBlock label="Enter your new password." error={npErr}>
         <input
           className="popup-input"
-          style={{ color: "var(--text)" }}
+          style={{ color: "var(--ink)" }}
           type="password"
           value={newP}
           onChange={(e) => setNewP(e.target.value)}
@@ -553,7 +553,7 @@ function PasswordForm({ onSave, onCancel }) {
       <FieldBlock label="Confirm your new password." error={cfErr}>
         <input
           className="popup-input"
-          style={{ color: "var(--text)" }}
+          style={{ color: "var(--ink)" }}
           type="password"
           value={conf}
           onChange={(e) => setConf(e.target.value)}
