@@ -129,14 +129,9 @@ export default function JoinPlastics({ session, onLogin }) {
         </div>
 
         <div className="submit-container">
-          {/* actually sign up */}
+          {/* actually signs up */}
           <div className="submit" onClick={handleSignup}>
             Submit!
-          </div>
-
-          {/* go to login */}
-          <div className="submit gray" onClick={() => navigate("/login")}>
-            Sign In!
           </div>
         </div>
       </div>

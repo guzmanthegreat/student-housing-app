@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <main className="home-page">
       <section className="home-hero">
-        <h1>Join UR Roomies Today!</h1>
+        <h1>Join Ur Roomies Today!</h1>
 
         <div className="carousel-swiper">
           <Swiper
@@ -62,7 +62,7 @@ export default function Home() {
           ) : (
             <div className="submit-container">
               <Link className="submit secondary" to="/signup">
-                Sign up
+                Create an Account
               </Link>
               <Link className="submit primary" to="/login">
                 Login

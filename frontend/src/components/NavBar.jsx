@@ -1,13 +1,13 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./NavBar.css";
 
-export default function Navbar({ session,onLogout }) {
+export default function Navbar({ session, onLogout }) {
   // const location = useLocation();
   const navigate = useNavigate();
   // const onDashboard = location.pathname.toLowerCase() === "/dashboard";
 
   const handleLogout = () => {
-    onLogout();          
+    onLogout();
     navigate("/home");
   };
 
@@ -33,8 +33,8 @@ export default function Navbar({ session,onLogout }) {
           </>
         ) : (
           <>
-            <Link to="/login" className="navbar-signin">
-              Sign In
+            <Link to="/login" className="navbar-login">
+              Login
             </Link>
           </>
         )}
