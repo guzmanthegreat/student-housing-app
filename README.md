@@ -118,10 +118,3 @@ student-housing-app/
 ├── docker-compose.yml
 └── README.md
 ```
-
----
-
-## Links
-
-- [Figma Design](https://www.figma.com/design/BCoKbG9Ufkkairu1vrSdL1/sheCodes-fullStack-Figma?node-id=0-1&p=f&t=VWx5kgCiAMxyJaZj-0)
-- [Video Walkthrough](https://youtu.be/cL8MffrC0oE)
