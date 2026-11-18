@@ -227,7 +227,7 @@
 .home-eyebrow { margin-bottom: 18px; }
 .home-hero h1 { font-size: clamp(50px, 6.5vw, 84px); }
 .home-subtitle { margin: 22px 0 0; font-size: 17px; line-height: 1.6; }
-.carousel-swiper { grid-area: visual; width: 100%; margin: 0; aspect-ratio: 4 / 5; border-radius: 20px; box-shadow: none; border: 1px solid rgba(155,231,215,.24); }
+.carousel-swiper { grid-area: visual; width: 100%; margin: 0; aspect-ratio: 4 / 5; border-radius: 20px; box-shadow: none; border: 1px solid rgba(197,232,121,.24); }
 .cta-row { grid-area: cta; justify-content: flex-start; margin: 10px 0 0; }
 .submit-container { justify-content: flex-start; margin: 0; gap: 12px; }
 .submit { width: auto; min-width: 160px; padding: 0 22px; }

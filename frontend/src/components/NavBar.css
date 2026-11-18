@@ -5,8 +5,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(17, 26, 56, 0.94);
-  border-bottom: 1px solid rgba(155, 231, 215, 0.28);
+  background: rgba(23, 51, 31, 0.94);
+  border-bottom: 1px solid rgba(197, 232, 121, 0.3);
   height: 72px;
   padding: 0 clamp(18px, 4vw, 52px);
   backdrop-filter: blur(14px);
@@ -65,7 +65,7 @@
 
 .navbar-login,
 .user-profile {
-  border: 1px solid rgba(155, 231, 215, 0.55);
+  border: 1px solid rgba(197, 232, 121, 0.6);
   border-radius: 999px;
   padding: 9px 16px;
 }
