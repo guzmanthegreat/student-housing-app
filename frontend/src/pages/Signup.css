@@ -1,11 +1,11 @@
 @font-face {
-  font-family: "Dollie Script";
-  src: url("../assets/Dollie-Script.ttf") format("truetype");
+  font-family: "Freshman";
+  src: url("../assets/Freshman.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Oregano";
-  src: url("./assets/Oregano-Regular.ttf") format("truetype");
+  src: url("../assets/Oregano-Regular.ttf") format("truetype");
 }
 
 .jp-auth {

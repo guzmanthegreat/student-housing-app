@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Bills.css";
+import { api } from "../lib/api";
 
 const ICON_URL =
   "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/receipt.svg";
@@ -28,7 +29,7 @@ export default function BillsPage({ roomNum }) {
     (async () => {
       try {
         console.log("room number: ", ROOM);
-        const res = await fetch(`http://localhost:3000/receipt/${ROOM}`);
+        const res = await api(`/receipt/${ROOM}`);
         if (!res.ok) throw new Error("Failed to load receipts");
         const data = await res.json();
         setBills(data.receipts || []);
@@ -50,7 +51,7 @@ export default function BillsPage({ roomNum }) {
     formData.append("receipt", selectedFile);
 
     try {
-      const res = await fetch("http://localhost:3000/api/receipts/upload", {
+      const res = await api("/api/receipts/upload", {
         method: "POST",
         body: formData,
       });
@@ -64,7 +65,7 @@ export default function BillsPage({ roomNum }) {
       const title = receipt?.vendor?.name || "Untitled";
 
       // Save to DB
-      const save = await fetch("http://localhost:3000/receipt/upload", {
+      const save = await api("/receipt/upload", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

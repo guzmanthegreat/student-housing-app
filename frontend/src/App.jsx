@@ -18,6 +18,7 @@ import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard";
 import CreateChore from "./pages/CreateChore";
 import EditChore from "./pages/EditChore";
+import { api } from "./lib/api";
 
 export default function App() {
   const [session, setSession] = useState(null);
@@ -25,20 +26,32 @@ export default function App() {
   const [room_num, setRoomNum] = useState(null);
   const [username, setUsername] = useState(null);
 
-  // Restore from localStorage on first load
+  // Local storage keeps the user logged in after a browser refresh.
   useEffect(() => {
-    const savedSession = localStorage.getItem("session");
+    api("/api/me")
+      .then(async (response) => {
+        if (!response.ok) {
+          localStorage.removeItem("session");
+          localStorage.removeItem("userId");
+          localStorage.removeItem("room_num");
+          localStorage.removeItem("username");
+          return;
+        }
+        const user = await response.json();
+        setSession(user);
+        setUserId(user.userId);
+        setRoomNum(user.room_num);
+        setUsername(user.name);
+        localStorage.setItem("session", JSON.stringify(user));
+        localStorage.setItem("userId", String(user.userId));
+        localStorage.setItem("room_num", String(user.room_num));
+        localStorage.setItem("username", user.name);
+      })
+      .catch(() => {});
+
     const savedUserId = localStorage.getItem("userId");
     const savedRoomNum = localStorage.getItem("room_num");
     const savedUsername = localStorage.getItem("username");
-
-    if (savedSession) {
-      try {
-        setSession(JSON.parse(savedSession));
-      } catch {
-        localStorage.removeItem("session");
-      }
-    }
 
     if (savedUserId) setUserId(Number(savedUserId));
     if (savedRoomNum) setRoomNum(Number(savedRoomNum));
@@ -62,6 +75,7 @@ export default function App() {
 
   // Called when Logout button clicked
   const handleLogout = () => {
+    api("/api/logout", { method: "POST" }).catch(() => {});
     setSession(null);
     setUserId(null);
     setRoomNum(null);
@@ -92,18 +106,22 @@ export default function App() {
           }
         />
 
-        <Route path="/calendar" element={<Calendar />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/calendar" element={session ? <Calendar /> : <Navigate to="/login" replace />} />
+        <Route path="/profile" element={session ? <Profile /> : <Navigate to="/login" replace />} />
         <Route
           path="/chores"
           element={
-            <Chores userId={userId} room_num={room_num} username={username} />
+            session ? (
+              <Chores userId={userId} room_num={room_num} username={username} />
+            ) : (
+              <Navigate to="/login" replace />
+            )
           }
         />
-        <Route path="/create-chore" element={<CreateChore />} />
-        <Route path="/edit-chore" element={<EditChore userId={userId} />} />
+        <Route path="/create-chore" element={session ? <CreateChore /> : <Navigate to="/login" replace />} />
+        <Route path="/edit-chore" element={session ? <EditChore userId={userId} /> : <Navigate to="/login" replace />} />
 
-        <Route path="/bills" element={<Bills roomNum={room_num} />} />
+        <Route path="/bills" element={session ? <Bills roomNum={room_num} /> : <Navigate to="/login" replace />} />
 
         {/* Login route */}
         <Route

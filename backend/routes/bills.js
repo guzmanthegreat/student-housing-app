@@ -4,35 +4,40 @@ import { Router } from 'express';
 import multer from 'multer';
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 import veryfiClient from '../functions/veryfi.js'; // <- import client
+import { requireLogin } from '../functions/auth.js';
 
 const router = Router();
 const storage = multer.memoryStorage();
-const upload = multer({ storage });
+const upload = multer({
+  storage,
+  limits: { fileSize: 8 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    cb(null, /^image\/(jpeg|png|webp|heic|heif|pdf)$/.test(file.mimetype));
+  },
+});
 
-router.post('/upload', upload.single('receipt'), async (req, res) => {
+router.post('/upload', requireLogin, upload.single('receipt'), async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
 
     const tempDir = path.join('./temp');
     if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir);
 
-    const tempPath = path.join(tempDir, req.file.originalname);
+    const tempPath = path.join(tempDir, `${crypto.randomUUID()}${path.extname(req.file.originalname)}`);
     fs.writeFileSync(tempPath, req.file.buffer);
-
-    const response = await veryfiClient.process_document(tempPath, []);
-
-    fs.unlinkSync(tempPath);
-
-    const billData = {
-      id: Date.now(),
-      vendor: response.vendor || "Unknown",
-      date: response.date || new Date().toISOString().split('T')[0],
-      total: response.total || 0,
-      thumbnailUrl: req.file ? `/temp/${req.file.originalname}` : null,
-    };
-
-    res.json(billData);
+    try {
+      const response = await veryfiClient.process_document(tempPath, []);
+      res.json({
+        id: Date.now(),
+        vendor: response.vendor || "Unknown",
+        date: response.date || new Date().toISOString().split('T')[0],
+        total: response.total || 0,
+      });
+    } finally {
+      if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
+    }
   } catch (error) {
     console.error('Veryfi upload error:', error);
     res.status(500).json({ error: 'Failed to process receipt' });

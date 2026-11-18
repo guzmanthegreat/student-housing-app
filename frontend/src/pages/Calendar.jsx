@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import "./Calendar.css";
+import { api, API_URL } from "../lib/api";
 
 export default function CalendarPage() {
   const [error, setError] = useState("");
@@ -57,7 +58,7 @@ export default function CalendarPage() {
     setError("");
     try {
       setCreating(true);
-      await fetch("http://localhost:3000/api/calendar/create", {
+      await api("/api/calendar/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -115,7 +116,7 @@ export default function CalendarPage() {
           }}
           events={async (info, success, failure) => {
             try {
-              const url = new URL("http://localhost:3000/api/calendar/events");
+              const url = new URL(`${API_URL}/api/calendar/events`);
               url.searchParams.set("start", info.startStr);
               url.searchParams.set("end", info.endStr);
               const r = await fetch(url, { credentials: "include" });

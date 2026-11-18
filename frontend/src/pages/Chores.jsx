@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import Modal from '../components/Modal'
 import './Chores.css';
+import { api } from "../lib/api";
 
 function Chores({ userId, room_num}) {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ function Chores({ userId, room_num}) {
   const confirmDelete = async() =>{
     if(!choreToDelete) return;
     try{
-      const response = await fetch(`http://localhost:3000/chores/${choreToDelete.id}`, {
+      const response = await api(`/chores/${choreToDelete.id}`, {
         method: 'DELETE',
       });
         if (response.ok){
@@ -42,7 +43,7 @@ function Chores({ userId, room_num}) {
 
     const handleMarkComplete = async (choreId) => {
         try {
-          const response = await fetch(`http://localhost:3000/chore/completed/${choreId}`, {
+          const response = await api(`/chore/completed/${choreId}`, {
             method: 'PUT',
           });
 
@@ -50,7 +51,9 @@ function Chores({ userId, room_num}) {
             // Update state so the UI shows it as complete
             setChores(prev =>
               prev.map(chore =>
-                chore.id === choreId ? { ...chore, is_finished: true } : chore
+                chore.id === choreId
+                  ? { ...chore, is_finished: !chore.is_finished }
+                  : chore
               )
             );
           } else {
@@ -65,7 +68,7 @@ function Chores({ userId, room_num}) {
   useEffect(() => {
    async function fetchChores() {
       try {
-        const response = await fetch(`http://localhost:3000/get/chores/${room_num}`);
+        const response = await api(`/get/chores/${room_num}`);
         const data = await response.json();
         setChores(data);
       } catch (err) {

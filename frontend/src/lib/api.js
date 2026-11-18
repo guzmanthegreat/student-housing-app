@@ -1,14 +1,16 @@
-import axios from "axios";
+export const API_URL = (import.meta.env.VITE_API_URL || "http://localhost:3000").replace(/\/$/, "");
 
-const api = axios.create({
-  baseURL: "http://localhost:5173",
-});
+// One fetch helper keeps local and deployed API URLs consistent.
+export async function api(path, options = {}) {
+  const headers = { ...(options.headers || {}) };
+  if (options.body && !(options.body instanceof FormData)) {
+    headers["Content-Type"] = "application/json";
+  }
 
-// Attach token from localStorage automatically
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
-  if (token) config.headers.Authorization = `Bearer ${token}`;
-  return config;
-});
-
-export default api;
+  const response = await fetch(`${API_URL}${path}`, {
+    ...options,
+    headers,
+    credentials: "include",
+  });
+  return response;
+}

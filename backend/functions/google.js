@@ -27,6 +27,7 @@ export function getCalendarFromSession(req)
 // checks if the user has authenticated with Google yet:
 export function ensureConnected(req, res, next) 
 {
+  if (!req.session.userId) return res.status(401).json({ error: 'Please log in' });
   if (!req.session.googleTokens) return res.status(401).json({ error: 'Not connected' });
   next();
 }

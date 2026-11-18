@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import "./Profile.css";
+import { api, API_URL } from "../lib/api";
 
 /** Cache-bust helper: append ?v=<timestamp> so the browser refetches */
 const withBust = (url, bust = Date.now()) =>
@@ -37,7 +38,7 @@ export default function ProfilePage() {
     }
     (async () => {
       try {
-        const response = await fetch(`http://localhost:3000/profile/${USER_ID}`, {
+        const response = await api(`/profile/${USER_ID}`, {
           credentials: "include",
         });
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
@@ -52,7 +53,7 @@ export default function ProfilePage() {
         const relPath = data.profile_picture || null;
         setServerAvatarPath(relPath);
 
-        const fullUrl = relPath ? `http://localhost:3000${relPath}` : null;
+        const fullUrl = relPath ? `${API_URL}${relPath}` : null;
         setAvatarSrc(withBust(fullUrl));
       } catch (err) {
         console.error("Failed to fetch user profile:", err);
@@ -66,7 +67,7 @@ export default function ProfilePage() {
     if (!USER_ID) return;
     const confmUsername = newUsername;
     try {
-      const response = await fetch("http://localhost:3000/change/username", {
+      const response = await api("/change/username", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId: USER_ID, newUsername, confmUsername }),
@@ -89,7 +90,7 @@ export default function ProfilePage() {
   const changeEmail = async (newEmail) => {
     const confmEmail = newEmail;
     try {
-      const response = await fetch("http://localhost:3000/change/email", {
+      const response = await api("/change/email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId: USER_ID, newEmail, confmEmail }),
@@ -112,7 +113,7 @@ export default function ProfilePage() {
   const changePassword = async (oldPassword, newPassword) => {
     const confmPassword = newPassword;
     try {
-      const response = await fetch("http://localhost:3000/change/password", {
+      const response = await api("/change/password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -140,7 +141,7 @@ export default function ProfilePage() {
     if (!USER_ID) return;
     const confmRoomNum = newRoomNum;
     try {
-      const response = await fetch("http://localhost:3000/change/room", {
+      const response = await api("/change/room", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId: USER_ID, room_num: confmRoomNum }),
@@ -177,7 +178,7 @@ export default function ProfilePage() {
       const formData = new FormData();
       formData.append("profile_picture", file);
 
-      const res = await fetch(`http://localhost:3000/profile/${USER_ID}/picture`, {
+      const res = await api(`/profile/${USER_ID}/picture`, {
         method: "POST",
         body: formData,
         credentials: "include",
@@ -195,7 +196,7 @@ export default function ProfilePage() {
         const errorMsg = body?.error || body?.message || `HTTP ${res.status}`;
         setError(`Profile pic change failed: ${errorMsg}`);
         // Revert to previous server image (with new bust)
-        const fullServerUrl = serverAvatarPath ? `http://localhost:3000${serverAvatarPath}` : null;
+        const fullServerUrl = serverAvatarPath ? `${API_URL}${serverAvatarPath}` : null;
         setAvatarSrc(withBust(fullServerUrl));
         return;
       }
@@ -208,7 +209,7 @@ export default function ProfilePage() {
 
       const fullUrl = newRelPath.startsWith("http")
         ? newRelPath
-        : `http://localhost:3000${newRelPath}`;
+        : `${API_URL}${newRelPath}`;
 
       // IMPORTANT: cache-bust so the newest file shows without a hard reload
       setError("");
@@ -218,7 +219,7 @@ export default function ProfilePage() {
     } catch (err) {
       setError(`Network error: Could not save profile pic. ${err.message}`);
       // Revert to previous server image (with bust)
-      const fullServerUrl = serverAvatarPath ? `http://localhost:3000${serverAvatarPath}` : null;
+      const fullServerUrl = serverAvatarPath ? `${API_URL}${serverAvatarPath}` : null;
       setAvatarSrc(withBust(fullServerUrl));
       alert(`Could not save profile picture: ${err.message}`);
     }

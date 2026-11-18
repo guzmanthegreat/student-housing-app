@@ -61,11 +61,11 @@ export default function Home() {
             <div></div>
           ) : (
             <div className="submit-container">
+              <Link className="submit primary" to="/login">
+                Log in
+              </Link>
               <Link className="submit secondary" to="/signup">
                 Create an Account
-              </Link>
-              <Link className="submit primary" to="/login">
-                Login
               </Link>
             </div>
           )}

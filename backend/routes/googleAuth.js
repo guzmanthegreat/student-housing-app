@@ -1,11 +1,12 @@
 import { Router } from 'express';
 import { getOAuthClient } from '../functions/google.js';
+import { requireLogin } from '../functions/auth.js';
 
 const router = Router();
 
 // exchange GIS "code" for tokens: it turns the temperary login approval code into reusable 
 // credentials that your server can use to access Google Calendar (or other Google APIs) for that user
-router.post('/exchange-code', async (req, res) => {
+router.post('/exchange-code', requireLogin, async (req, res) => {
   try {
     const { code } = req.body || {};  // receives a Google authorization code from the frontend
     if (!code) return res.status(400).json({ error: 'Missing code' });
@@ -21,12 +22,12 @@ router.post('/exchange-code', async (req, res) => {
 });
 
 // checks whether the user is connected to Google
-router.get('/status', (req, res) => {
+router.get('/status', requireLogin, (req, res) => {
   res.json({ connected: !!req.session.googleTokens });
 });
 
 // logs the user out by destroying the session
-router.post('/logout', (req, res) => {
+router.post('/logout', requireLogin, (req, res) => {
   req.session.destroy(() => res.sendStatus(204));
 });
 

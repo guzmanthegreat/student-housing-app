@@ -18,7 +18,7 @@ works for everyone else too */
   align-items: flex-start; /* <-- makes all 3 columns same height */
   padding: 20px;
   background: var(--bg);
-  font-family: "Barbie", "Dollie Script", serif;
+  font-family: "Freshman", serif;
   padding-top: 30px;  /* uniform top spacing */
 }
 
@@ -145,7 +145,7 @@ works for everyone else too */
 
 .chore-card h2 {
   font-size: clamp(22px, 2.5vw, 28px); /* restored original size */
-  font-family: "Barbie", "Dollie Script", serif;
+  font-family: "Freshman", serif;
   font-weight: 800;
   margin-bottom: 12px;
   color: var(--ink);
@@ -275,7 +275,7 @@ works for everyone else too */
   color: var(--primary);     
   opacity: 0.8;
   transform: rotate(-2deg);
-  font-family: "Barbie", "Dollie Script", serif;
+  font-family: "Freshman", serif;
 }
 
 .quote-card, .bills-card {

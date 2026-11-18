@@ -1,6 +1,7 @@
 import './CreateChore.css'
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from "react-router-dom";
+import { api } from "../lib/api";
 
 function CreateChore() {
     const navigate = useNavigate();
@@ -21,11 +22,11 @@ function CreateChore() {
         e.preventDefault();
         setErrorMessage("");
 
-    const response = await fetch('http://localhost:3000/chores', {
+    const response = await api('/chores', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json',
      },
-    body: JSON.stringify({ ...chore})
+    body: JSON.stringify(chore)
   });
 
    const data = await response.json();

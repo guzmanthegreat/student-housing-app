@@ -6,8 +6,9 @@ import email_icon from "../assets/email.png";
 import password_icon from "../assets/password.png";
 import user_icon from "../assets/user.png";
 import room_icon from "../assets/room.png";
+import { api } from "../lib/api";
 
-export default function JoinPlastics({ session, onLogin }) {
+export default function Signup({ session, onLogin }) {
   const navigate = useNavigate();
   const location = useLocation();
   const action = "Create an Account!";
@@ -38,7 +39,7 @@ export default function JoinPlastics({ session, onLogin }) {
     try {
       setErrorMessage("");
 
-      const res = await fetch("http://localhost:3000/register", {
+      const res = await api("/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -88,7 +89,7 @@ export default function JoinPlastics({ session, onLogin }) {
             <img src={user_icon} alt="user" />
             <input
               type="text"
-              placeholder="Full Name"
+              placeholder="First Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -118,7 +119,7 @@ export default function JoinPlastics({ session, onLogin }) {
             <img src={password_icon} alt="password" />
             <input
               type="password"
-              placeholder={"Password"}
+              placeholder={"Create a Password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />

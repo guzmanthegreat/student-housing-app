@@ -5,11 +5,12 @@ import "./Login.css";
 // Icons
 import password_icon from "../assets/password.png";
 import user_icon from "../assets/user.png";
+import { api } from "../lib/api";
 
 export default function Login({ session, onLogin }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const [action, setAction] = useState("Sign in!");
+  const [action, setAction] = useState("Log into Roomies!");
 
   // Track input fields
   const [username, setUsername] = useState(""); // Must be username for backend login
@@ -30,7 +31,7 @@ export default function Login({ session, onLogin }) {
   const handleLogin = async () => {
     try {
       setErrorMessage(""); // clear any old error
-      const res = await fetch("http://localhost:3000/login", {
+      const res = await api("/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
@@ -76,7 +77,7 @@ export default function Login({ session, onLogin }) {
 
         <div className="inputs">
           {/* Name (Sign Up only) */}
-          {action === "Sign in!" ? null : (
+          {action === "Log into Roomies!" ? null : (
             <div className="input">
               <img src={user_icon} alt="user" />
               <input type="text" placeholder="Your Full Fetch Name" />
@@ -88,7 +89,7 @@ export default function Login({ session, onLogin }) {
             <img src={user_icon} alt="username" />
             <input
               type="text"
-              placeholder="Your Username"
+              placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
@@ -99,7 +100,7 @@ export default function Login({ session, onLogin }) {
             <img src={password_icon} alt="password" />
             <input
               type="password"
-              placeholder='Your Totally Not "1234" Password'
+              placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -126,10 +127,12 @@ export default function Login({ session, onLogin }) {
             Create an Account
           </div>
           <div
-            className={action === "Sign in!" ? "submit gray" : "submit"}
+            className={
+              action === "Log into Roomies!" ? "submit gray" : "submit"
+            }
             onClick={handleLogin} // Call login
           >
-            Sign in!
+            Log in!
           </div>
         </div>
       </div>

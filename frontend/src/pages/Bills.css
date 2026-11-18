@@ -1,14 +1,14 @@
 
 @font-face {
   font-family: "Oregano";
-  src: url("./assets/Oregano-Regular.ttf") format("truetype");
+  src: url("../assets/Oregano-Regular.ttf") format("truetype");
 }
 
 .bills-page {
   max-width: 800px;
   margin: 2rem auto;
   padding: 2rem;
-  font-family: "Barbie", "Dollie Script", serif;
+  font-family: "Barbie", "Freshman", serif;
   background-color: var(--paper);
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
@@ -164,7 +164,7 @@
   max-width: 400px;
   width: 90%;
   box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  font-family: "Barbie", "Dollie Script", serif;
+  font-family: "Barbie", "Freshman", serif;
   position: relative;
   text-align: center;
 }

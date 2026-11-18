@@ -1,6 +1,7 @@
 import './CreateChore.css'
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from "react-router-dom";
+import { api } from "../lib/api";
 
 function EditChore() {
     const navigate = useNavigate();
@@ -8,14 +9,14 @@ function EditChore() {
   const passeduserId = state?.userId;
   const original = state?.chore;
 
-  const [chore, setChore] = useState({
+  const [chore, setChore] = useState(() => original ? ({
     chore_name: original.chore_name,
     description: original.description,
     user_id: original.user_id || passeduserId,
-    due_date: new Date().toISOString().split('T')[0],
+    due_date: original.due_date ? new Date(original.due_date).toISOString().split('T')[0] : "",
     is_finished: original.is_finished,
     room_num: original.room_num
-  });
+  }) : null);
 
   // store error message for inline display
   const [errorMessage, setErrorMessage] = useState("");
@@ -25,8 +26,8 @@ function EditChore() {
     setErrorMessage("");
 
       
-    const response = await fetch(
-      `http://localhost:3000/chores/${original.id}`,
+    const response = await api(
+      `/chores/${original.id}`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -45,9 +46,14 @@ function EditChore() {
   
 
   useEffect(() => {
+  if (!original) return;
   console.log("Original chore:", original);
   console.log("Initial state:", chore);
 }, []);
+
+    if (!original || !chore) {
+      return <div className="create-chore-container"><h1 className="create-chore-title">Chore not found</h1><button className="back-button" onClick={() => navigate("/chores")}>Back to Chores</button></div>;
+    }
 
     return(
         <div className="text-center text-primary mt-5 create-chore-container">

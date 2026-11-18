@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 import defaultAvatar from "../assets/default_avatar.png";
+import { api, API_URL } from "../lib/api";
 
 const Dashboard = ({ userId }) => {
   const navigate = useNavigate();
@@ -50,7 +51,7 @@ const Dashboard = ({ userId }) => {
         callback: async ({ code }) => {
           if (!code) return;
           try {
-            const r = await fetch("http://localhost:3000/api/auth/exchange-code", {
+            const r = await api("/api/auth/exchange-code", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               credentials: "include",
@@ -61,7 +62,7 @@ const Dashboard = ({ userId }) => {
             const start = Date.now();
             while (Date.now() - start < 8000) {
               try {
-                const s = await fetch("http://localhost:3000/api/auth/status", {
+                const s = await api("/api/auth/status", {
                   credentials: "include",
                 });
                 const j = await s.json();
@@ -72,7 +73,7 @@ const Dashboard = ({ userId }) => {
           } catch (err) {
             console.error("OAuth exchange/status check failed:", err);
           } finally {
-            window.location.href = "http://localhost:5173/calendar";
+            window.location.href = "/calendar";
           }
         },
       });
@@ -81,11 +82,15 @@ const Dashboard = ({ userId }) => {
 
   const handleCalendarClick = async () => {
     try {
-      fetch("http://localhost:3000/api/auth/status", { credentials: "include" })
+      if (!import.meta.env.VITE_GOOGLE_CLIENT_ID) {
+        window.alert("Calendar integration is not configured yet.");
+        return;
+      }
+      api("/api/auth/status")
         .then((r) => r.json())
         .then((j) => {
           if (j?.connected) {
-            window.location.href = "http://localhost:5173/calendar";
+            window.location.href = "/calendar";
           }
         })
         .catch(() => {});
@@ -102,7 +107,7 @@ const Dashboard = ({ userId }) => {
     if (!userId) return;
     const fetchProfile = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/profile/${userId}`);
+        const res = await api(`/profile/${userId}`);
         if (!res.ok) throw new Error("Failed to load profile");
         const data = await res.json();
         // adjust keys depending on backend response
@@ -119,8 +124,8 @@ const Dashboard = ({ userId }) => {
     if (!profile?.room_num) return;
     const fetchChores = async () => {
       try {
-        const res = await fetch(
-          `http://localhost:3000/get/chores/${profile.room_num}`
+        const res = await api(
+          `/get/chores/${profile.room_num}`
         );
         if (!res.ok) throw new Error("Failed to load chores");
         const data = await res.json();
@@ -143,8 +148,8 @@ const Dashboard = ({ userId }) => {
           <div className="profile-pic">
             <img
               src={
-                userId
-                  ? `http://localhost:3000/uploads/profile_pictures/user_${userId}.jpg`
+                profile?.profile_picture
+                  ? `${API_URL}${profile.profile_picture}`
                   : defaultAvatar
               }
               alt={username ? `${username}'s profile` : "Profile"}
@@ -213,9 +218,8 @@ const Dashboard = ({ userId }) => {
         </div>
         <div className="divider">✧ ✦ ✧</div>
         <div className="bills-card">
-          <p><strong>Overdue Charges</strong></p>
-          <p><span>Target: $125.17</span></p>
-          <p><span>Trader Joe's: $67.67</span></p>
+          <p><strong>Keep your place running smoothly</strong></p>
+          <p><span>Track chores, shared bills, and plans from one dashboard.</span></p>
         </div>
       </aside>
     </div>

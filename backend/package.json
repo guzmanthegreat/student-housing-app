@@ -1,32 +1,38 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "backend",
+  "description": "Express and MySQL API for Roomies",
   "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "build": "node --check index.js && node --check routes/*.js && node --check functions/*.js",
+    "migrate": "node scripts/migrate.js",
+    "test": "node --test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CPP-SheCodes-SLP-2025-26/fullstack.git"
+    "url": "git+https://github.com/guzmanthegreat/student-housing-app.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CPP-SheCodes-SLP-2025-26/fullstack/issues"
+    "url": "https://github.com/guzmanthegreat/student-housing-app/issues"
   },
-  "homepage": "https://github.com/CPP-SheCodes-SLP-2025-26/fullstack#readme",
+  "homepage": "https://github.com/guzmanthegreat/student-housing-app#readme",
   "dependencies": {
     "@veryfi/veryfi-sdk": "^1.4.6",
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "express-mysql-session": "^3.0.3",
+    "express-rate-limit": "^8.7.4",
     "express-session": "^1.18.2",
     "google-auth-library": "^10.5.0",
     "googleapis": "^164.1.0",
+    "helmet": "^8.3.0",
     "multer": "^2.0.2",
     "mysql2": "^3.15.2"
   },

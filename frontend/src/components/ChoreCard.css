@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Nothing You Could Do';
-  src: url('../assets/NothingYouCouldDo-Regular.ttf') format('truetype');
+  font-family: 'Freshman';
+  src: url('../assets/Freshman.ttf') format('truetype');
 }
 
 @font-face {
@@ -20,7 +20,7 @@
     #aaa 1.9rem           /* line thickness */
   );
 
-  font-family: "Nothing You Could Do", serif;
+  font-family: "Freshman", serif;
   font-size: 1.6rem;
   padding:0;
   text-align: center;
