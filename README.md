@@ -42,6 +42,8 @@ docker compose down -v
 
 Start MySQL, create the `SHousing` database, then run:
 
+Set `MYSQL_HOST=127.0.0.1` in `backend/.env` when MySQL is running directly on your computer. The Docker value `MYSQL_HOST=database` only works inside Compose.
+
 ```bash
 cd backend
 npm ci
@@ -57,7 +59,7 @@ npm ci
 npm run dev
 ```
 
-The frontend uses `http://localhost:3000` by default. Set `VITE_API_URL` if the API is elsewhere.
+The frontend uses `http://localhost:3000` by default. Set `VITE_API_URL` if the API is elsewhere. Google Calendar requires both Google client ID variables; receipt OCR requires all four Veryfi variables.
 
 ## Environment variables
 
@@ -74,9 +76,15 @@ Never commit `.env` files or API credentials.
 
 ## Deploy on Render
 
-The repository includes [`render.yaml`](render.yaml) for one static frontend and one Dockerized API. Render does not provide MySQL, so create a managed MySQL database with a provider such as Railway, Aiven, or PlanetScale-compatible infrastructure first.
+The repository includes [`render.yaml`](render.yaml) for one static frontend and one Dockerized API. Render does not provide MySQL, so create a managed MySQL database with a provider such as Railway, Aiven, or another MySQL-compatible provider first.
 
-Create the Render Blueprint from this repository, then set the following.
+Recommended order:
+
+1. Create the managed MySQL database and confirm it accepts TLS connections.
+2. Create the Render Blueprint from this repository.
+3. Deploy the static site once so you know its public URL.
+4. Set `CORS_ORIGIN` on the API to the exact frontend origin, including `https://` and excluding a trailing slash.
+5. Set `VITE_API_URL` on the static site to the exact API URL, then redeploy the static site.
 
 ### API service: `roomies-api`
 
@@ -106,13 +114,15 @@ VITE_GOOGLE_CLIENT_ID=<same Google web client ID>
 
 After deployment, add the deployed frontend origin to Google Cloud OAuth authorized JavaScript origins. The Google OAuth client must allow the deployed frontend domain.
 
+The Google Calendar flow uses a popup/code exchange, so the deployed frontend origin is the key Google setting. Do not put the Google client secret in frontend variables.
+
 Verify the API:
 
 ```bash
 curl https://<api-domain>/health
 ```
 
-The API should return `{ "status": "ok" }`. Then test registration, login, creating a chore, uploading a receipt, and calendar connection in a private browser window.
+The API should return `{ "status": "ok" }`. Then test registration, login, creating a chore, uploading a receipt, profile updates, and calendar connection in a private browser window. If Veryfi is not configured, receipt OCR is expected to fail until those credentials are added.
 
 ## Verification commands
 
