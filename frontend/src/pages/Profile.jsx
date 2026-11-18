@@ -239,7 +239,7 @@ export default function ProfilePage() {
       )}
 
       <div className="profile-card">
-        <h1 className="profile-title">She Doesn’t Even Go Here!</h1>
+        <h1 className="profile-title">Your profile</h1>
 
         <div className="lips lips--tl" aria-hidden="true">💋</div>
 

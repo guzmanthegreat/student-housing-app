@@ -139,10 +139,12 @@ const Dashboard = ({ userId }) => {
 
   const username = profile?.name ?? "";   
   const roomNum = profile?.room_num;
+  const openChores = chores.filter((chore) => !chore.is_finished);
+  const nextChore = [...openChores].sort((a, b) => new Date(a.due_date) - new Date(b.due_date))[0];
+  const nextDue = nextChore ? new Date(nextChore.due_date).toLocaleDateString(undefined, { month: "short", day: "numeric" }) : "—";
 
   return (
     <div className="dashboard">
-      {/* Sidebar with profile and navigation links */}
       <aside className="sidebar">
         <div className="profile">
           <div className="profile-pic">
@@ -166,16 +168,35 @@ const Dashboard = ({ userId }) => {
 
         <nav className="nav-menu">
           <ul>
-            <li onClick={handleCalendarClick}>Calendar</li>
+            <li className="is-active">Overview</li>
             <li onClick={() => navigate("/chores")}>Chores</li>
-            <li onClick={() => navigate("/bills")}>Bills</li>
+            <li onClick={() => navigate("/bills")}>Shared bills</li>
+            <li onClick={handleCalendarClick}>Calendar</li>
           </ul>
         </nav>
       </aside>
 
-      <main className="main-content">
-        <div className="chore-card">
-          <h2>Your Chore List</h2>
+      <main className="main-content dashboard-main">
+        <header className="dashboard-header">
+          <div>
+            <p className="section-kicker">ROOM {roomNum || "—"}</p>
+            <h1>Hey, {username || "there"}.</h1>
+            <p>Here’s what needs attention at home.</p>
+          </div>
+          <button className="dashboard-primary" onClick={() => navigate("/create-chore", { state: { userId, room_num: roomNum } })}>+ Add chore</button>
+        </header>
+
+        <section className="dashboard-stats" aria-label="Household summary">
+          <div className="stat-card"><span>Open chores</span><strong>{openChores.length}</strong></div>
+          <div className="stat-card"><span>Next due</span><strong>{nextDue}</strong></div>
+          <div className="stat-card"><span>Your room</span><strong>{roomNum || "—"}</strong></div>
+        </section>
+
+        <section className="chore-card dashboard-panel">
+          <div className="panel-heading">
+            <div><p className="section-kicker">KEEP THE HOUSE MOVING</p><h2>Chores</h2></div>
+            <button className="text-action" onClick={() => navigate("/chores")}>View all</button>
+          </div>
           <div className="chore-list">
             {roomNum == null && (
               <p className="chore-empty">Loading your profile…</p>
@@ -185,7 +206,7 @@ const Dashboard = ({ userId }) => {
             )}
             {roomNum != null &&
               chores.length > 0 &&
-              chores.map((chore) => {
+              chores.slice(0, 4).map((chore) => {
                 const due = new Date(chore.due_date).toLocaleDateString();
                 const statusClass = chore.is_finished ? "done" : "pending";
 
@@ -208,19 +229,21 @@ const Dashboard = ({ userId }) => {
                 );
               })}
           </div>
-        </div>
+        </section>
       </main>
 
-      <aside className="right-notes">
-        <div className="quote-card">
-          <p>“On Wednesdays, We Wear Pink”</p>
-          <p>“That's So Fetch!”</p>
-        </div>
-        <div className="divider">✧ ✦ ✧</div>
-        <div className="bills-card">
-          <p><strong>Keep your place running smoothly</strong></p>
-          <p><span>Track chores, shared bills, and plans from one dashboard.</span></p>
-        </div>
+      <aside className="right-notes dashboard-aside">
+        <section className="house-card">
+          <p className="section-kicker">YOUR HOUSEHOLD</p>
+          <h2>Room {roomNum || "—"}</h2>
+          <p>One place for the things everyone needs to know.</p>
+        </section>
+        <section className="quick-actions">
+          <p className="section-kicker">QUICK ACTIONS</p>
+          <button onClick={() => navigate("/create-chore", { state: { userId, room_num: roomNum } })}>Add a chore <span>→</span></button>
+          <button onClick={() => navigate("/bills")}>Upload a receipt <span>→</span></button>
+          <button onClick={handleCalendarClick}>Plan something <span>→</span></button>
+        </section>
       </aside>
     </div>
   );

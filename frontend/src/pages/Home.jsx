@@ -39,8 +39,8 @@ export default function Home() {
       <section className="home-hero">
         <div className="home-copy">
           <p className="home-eyebrow">THE SHARED HOME, SORTED</p>
-          <h1>Make room for a better roommate life.</h1>
-          <p className="home-subtitle">Chores, bills, plans, and the little things that keep your place feeling like home—all in one cute little corner.</p>
+          <h1>Everything your household needs to stay on top of.</h1>
+          <p className="home-subtitle">Roomies keeps chores, shared bills, and house plans in one simple place—so nobody has to ask, “Wait, who’s doing that?”</p>
         </div>
 
         <div className="carousel-swiper">
@@ -66,7 +66,7 @@ export default function Home() {
           ) : (
             <div className="submit-container">
               <Link className="submit primary" to="/signup">
-                Create an Account
+                Start your household
               </Link>
               <Link className="submit secondary" to="/login">Log in</Link>
             </div>
