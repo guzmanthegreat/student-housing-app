@@ -76,24 +76,24 @@
 }
 
 .submit.primary {
-  background: var(--primary);
+  background: var(--warm);
   color: var(--ink);
 }
 
 .submit.secondary {
-  background: var(--surface);
-  color: var(--text);
-  border: 2px solid var(--accent);
+  background: var(--primary);
+  color: var(--ink);
+  border: 0;
 }
 
 .submit.primary:hover {
-  background: var(--accent);
-  color: var(--text);
+  background: var(--primary);
+  color: var(--ink);
 }
 
 .submit.secondary:hover {
-  background: var(--accent);
-  color: var(--text);
+  background: var(--warm);
+  color: var(--ink);
 }
 
 .submit:active {

@@ -5,8 +5,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--surface);
-  border-bottom: 1px solid var(--accent);
+  background: var(--accent);
+  border-bottom: 2px solid var(--surface-deep);
   height: 72px;
   padding: 0 clamp(18px, 4vw, 52px);
   backdrop-filter: blur(14px);
@@ -30,7 +30,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--text);
+  color: var(--ink);
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
   font-size: 15px;
@@ -39,11 +39,11 @@
 }
 
 .logout-btn:hover {
-  color: var(--primary);
+  color: var(--surface-deep);
 }
 
 .navbar a {
-  color: var(--text);
+  color: var(--ink);
   text-decoration: none;
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
@@ -52,13 +52,13 @@
 }
 
 .navbar a:hover {
-  color: var(--primary);
+  color: var(--surface-deep);
 }
 
 .navbar-brand a {
   font-family: 'Freshman', serif;
   font-size: 28px;
-  color: var(--primary);
+  color: var(--ink);
   padding-left: 0;
   letter-spacing: 1px;
 }
@@ -70,7 +70,7 @@
 }
 
 .navbar-login { padding: 8px 16px; }
-.navbar-login.secondary-action:hover { color: var(--ink); background: var(--accent); }
+.navbar-login.secondary-action:hover { background: var(--warm); color: var(--ink); }
 
 @media (max-width: 640px) {
   .navbar { height: 64px; }
@@ -83,5 +83,5 @@
 }
 
 .navbar-brand a:hover {
-  color: var(--text);
+  color: var(--surface-deep);
 }
