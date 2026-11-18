@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--accent);
+  background: var(--primary);
   border-bottom: 2px solid var(--surface-deep);
   height: 72px;
   padding: 0 clamp(18px, 4vw, 52px);
@@ -70,7 +70,8 @@
 }
 
 .navbar-login { padding: 8px 16px; }
-.navbar-login.secondary-action:hover { background: var(--warm); color: var(--ink); }
+.navbar-login.secondary-action { background: var(--surface-deep); color: var(--text); }
+.navbar-login.secondary-action:hover { background: var(--surface); color: var(--text); }
 
 @media (max-width: 640px) {
   .navbar { height: 64px; }

@@ -1,5 +1,4 @@
 // Home.jsx
-import { useMemo } from "react";
 import { Link } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -17,17 +16,6 @@ import roommate3 from "../assets/roommate3.jpg";
 export default function Home() {
   const user = JSON.parse(localStorage.getItem("session") || "null");
 
-  const quotes = useMemo(
-    () => [
-      "Home is whoever you share it with.",
-      "Clean space, clear mind",
-      "Your home, your rules, your people.",
-      "A tidy home is a happy home.",
-    ],
-    [],
-  );
-  const quote = quotes[new Date().getDate() % quotes.length];
-
   const images = [
     { src: roommate1, alt: "Roommates chilling in their apartment" },
     { src: roommate2, alt: "Roommates reading and hanging out" },
@@ -37,13 +25,30 @@ export default function Home() {
   return (
     <main className="home-page">
       <section className="home-hero">
-        <div className="home-copy">
-          <h1>Run your shared home without the chaos.</h1>
-          <p className="home-subtitle">Manage chores, split bills, and keep house plans in one place.</p>
+        <div className="home-start">
+          <p className="home-mark">Roomies</p>
+          <div className="home-copy">
+            <h1>Run your shared home without the chaos.</h1>
+            <p className="home-subtitle">Manage chores, split bills, and keep house plans in one place.</p>
+          </div>
+          <div className="home-rule" />
+          <p className="home-helper">Get started with your room.</p>
+          <div className="cta-row">
+            {user ? (
+              <Link className="submit primary" to="/dashboard">Open dashboard</Link>
+            ) : (
+              <div className="submit-container">
+                <Link className="submit primary" to="/signup">Create account</Link>
+                <Link className="submit secondary secondary-action" to="/login">Log in</Link>
+              </div>
+            )}
+          </div>
+          {!user && <p className="home-login-note">Already have an account? <Link to="/login">Log in</Link></p>}
         </div>
 
         <div className="home-board">
           <div className="board-topline"><span>ROOMIES / 01</span><span>ROOM 3B</span></div>
+          <div className="board-message">A better house starts with knowing what needs doing.</div>
           <div className="carousel-swiper">
             <Swiper
               modules={[Autoplay, Pagination, EffectFade]}
@@ -64,23 +69,6 @@ export default function Home() {
           <div className="board-caption">Chores · receipts · plans</div>
         </div>
 
-        <div className="cta-row">
-          {user ? (
-            <Link className="submit primary" to="/dashboard">Open dashboard</Link>
-          ) : (
-            <div className="submit-container">
-              <Link className="submit primary" to="/signup">
-                Create account
-              </Link>
-              <Link className="submit secondary secondary-action" to="/login">Log in</Link>
-            </div>
-          )}
-        </div>
-
-        <div className="quote">
-          <span className="tape" />
-          <em>“{quote}”</em>
-        </div>
       </section>
     </main>
   );

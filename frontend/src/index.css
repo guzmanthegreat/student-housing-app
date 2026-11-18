@@ -79,14 +79,14 @@ textarea:focus-visible {
 }
 
 .secondary-action {
-  background: var(--primary);
+  background: var(--surface-deep);
   border: 0;
-  color: var(--ink);
+  color: var(--text);
 }
 
 .secondary-action:hover {
-  background: var(--warm);
-  color: var(--ink);
+  background: var(--surface);
+  color: var(--text);
 }
 
 * {
