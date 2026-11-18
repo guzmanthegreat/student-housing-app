@@ -129,7 +129,7 @@ export default function Login({ session, onLogin }) {
             }
             onClick={() => navigate("/signup")} // Redirect to signup
           >
-            Create an Account
+            Sign up
           </button>
           <button
             type="button"
@@ -138,7 +138,7 @@ export default function Login({ session, onLogin }) {
             }
             onClick={handleLogin} // Call login
           >
-            Log in!
+            Log in
           </button>
         </div>
       </div>

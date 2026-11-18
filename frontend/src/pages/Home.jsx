@@ -43,30 +43,35 @@ export default function Home() {
           <p className="home-subtitle">Roomies keeps chores, shared bills, and house plans in one simple place—so nobody has to ask, “Wait, who’s doing that?”</p>
         </div>
 
-        <div className="carousel-swiper">
-          <Swiper
-            modules={[Autoplay, Pagination, EffectFade]}
-            effect="fade"
-            fadeEffect={{ crossFade: true }}
-            loop
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
-            pagination={{ clickable: true }}
-          >
-            {images.map((img, i) => (
-              <SwiperSlide key={i}>
-                <img className="slide-img" src={img.src} alt={img.alt} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+        <div className="home-board">
+          <div className="board-topline"><span>ROOMIES / 01</span><span>ROOM 3B</span></div>
+          <div className="carousel-swiper">
+            <Swiper
+              modules={[Autoplay, Pagination, EffectFade]}
+              effect="fade"
+              fadeEffect={{ crossFade: true }}
+              loop
+              autoplay={{ delay: 3000, disableOnInteraction: false }}
+              pagination={{ clickable: true }}
+            >
+              {images.map((img, i) => (
+                <SwiperSlide key={i}>
+                  <img className="slide-img" src={img.src} alt={img.alt} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+          <div className="board-note">Who’s on dishes?</div>
+          <div className="board-caption">Chores · receipts · plans</div>
         </div>
 
         <div className="cta-row">
           {user ? (
-            <Link className="submit primary" to="/dashboard">Open your dashboard</Link>
+            <Link className="submit primary" to="/dashboard">Open dashboard</Link>
           ) : (
             <div className="submit-container">
               <Link className="submit primary" to="/signup">
-                Start your household
+                Start
               </Link>
               <Link className="submit secondary" to="/login">Log in</Link>
             </div>

@@ -141,7 +141,7 @@ export default function Signup({ session, onLogin }) {
         <p className="signup-helper">Use the room number your housemates share. You can start adding chores right away.</p>
         <div className="submit-container">
           <button type="button" className="submit" onClick={handleSignup}>
-            Join Roomies
+            Join
           </button>
         </div>
       </div>

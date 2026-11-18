@@ -17,8 +17,8 @@ export default function Navbar({ session, onLogout }) {
         <Link to="/home">Roomies</Link>
       </div>
       <div className="navbar-links">
-        <Link to="/home">Home</Link>
-        {session && <Link to="/dashboard">Dashboard</Link>}
+        {session && <Link to="/home">Home</Link>}
+        {session && <Link to="/dashboard">Overview</Link>}
       </div>
 
       <div className="navbar-right">
@@ -28,7 +28,7 @@ export default function Navbar({ session, onLogout }) {
               Profile
             </Link>
             <button className="navbar-link logout-btn" onClick={handleLogout}>
-              Logout
+              Log out
             </button>
           </>
         ) : (

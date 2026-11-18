@@ -183,7 +183,7 @@ const Dashboard = ({ userId }) => {
             <h1>Hey, {username || "there"}.</h1>
             <p>Here’s what needs attention at home.</p>
           </div>
-          <button className="dashboard-primary" onClick={() => navigate("/create-chore", { state: { userId, room_num: roomNum } })}>+ Add chore</button>
+          <button className="dashboard-primary" onClick={() => navigate("/create-chore", { state: { userId, room_num: roomNum } })}>+ Chore</button>
         </header>
 
         <section className="dashboard-stats" aria-label="Household summary">
@@ -195,7 +195,7 @@ const Dashboard = ({ userId }) => {
         <section className="chore-card dashboard-panel">
           <div className="panel-heading">
             <div><p className="section-kicker">KEEP THE HOUSE MOVING</p><h2>Chores</h2></div>
-            <button className="text-action" onClick={() => navigate("/chores")}>View all</button>
+            <button className="text-action" onClick={() => navigate("/chores")}>All chores</button>
           </div>
           <div className="chore-list">
             {roomNum == null && (
@@ -240,9 +240,9 @@ const Dashboard = ({ userId }) => {
         </section>
         <section className="quick-actions">
           <p className="section-kicker">QUICK ACTIONS</p>
-          <button onClick={() => navigate("/create-chore", { state: { userId, room_num: roomNum } })}>Add a chore <span>→</span></button>
-          <button onClick={() => navigate("/bills")}>Split a receipt <span>→</span></button>
-          <button onClick={handleCalendarClick}>Add a house plan <span>→</span></button>
+          <button onClick={() => navigate("/create-chore", { state: { userId, room_num: roomNum } })}>Chore <span>→</span></button>
+          <button onClick={() => navigate("/bills")}>Receipt <span>→</span></button>
+          <button onClick={handleCalendarClick}>Plan <span>→</span></button>
         </section>
       </aside>
     </div>
