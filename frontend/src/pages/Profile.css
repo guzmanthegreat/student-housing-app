@@ -99,7 +99,7 @@
   border-radius: 50%;
   border: 0;
   cursor: pointer;
-  background: linear-gradient(to bottom, #bdbdbd 0 50%, var(--primary) 50% 100%);
+  background: var(--accent);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
   position: relative;
   display: grid;
@@ -426,13 +426,7 @@
 .cropper-frame:active{ cursor:grabbing; }
 
 /* circular mask darkening the outside */
-.cropper-frame::after{
-  content:""; position:absolute; inset:0;
-  --mask: radial-gradient(circle at 50% 50%, transparent 49%, rgba(0,0,0,.55) 50%);
-  -webkit-mask: var(--mask); mask: var(--mask);
-  background: rgba(0,0,0,.55);
-  pointer-events:none;
-}
+.cropper-frame::after{ content:""; position:absolute; inset:0; border: 12px solid rgba(2,48,71,.35); border-radius: inherit; pointer-events:none; }
 
 .cropper-img{
   position:absolute; top:50%; left:50%;
@@ -446,7 +440,7 @@
 
 /* Profile keeps the playful quote, but behaves like a calm settings page. */
 .profile-page { min-height: calc(100dvh - 72px); height: auto; padding: 42px 18px 72px; align-items: flex-start; }
-.profile-card { width: min(1120px, 100%); height: auto; min-height: 0; padding: clamp(24px, 5vw, 56px); border: 1px solid rgba(142,202,230,.28); border-radius: var(--radius-lg); background: linear-gradient(145deg, #12627c, var(--surface-deep)); box-shadow: var(--shadow); grid-template-columns: minmax(220px, 360px) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); }
+.profile-card { width: min(1120px, 100%); height: auto; min-height: 0; padding: clamp(24px, 5vw, 56px); border: 1px solid rgba(142,202,230,.28); border-radius: var(--radius-lg); background: #12627c; box-shadow: var(--shadow); grid-template-columns: minmax(220px, 360px) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); }
 .profile-title { font-size: clamp(42px, 7vw, 78px); line-height: .9; text-shadow: none; }
 .profile-left, .profile-right { margin-top: 0; }
 .profile-right { align-self: center; }
