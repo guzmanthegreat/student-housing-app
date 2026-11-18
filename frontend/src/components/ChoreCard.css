@@ -37,7 +37,7 @@
   line-height: 1;
 }
 .card-due-date { margin: 0 0 14px; color: var(--accent); font: 700 13px 'DM Sans', sans-serif; text-transform: uppercase; letter-spacing: .06em; }
-.card-text { margin: 0; max-width: 560px; color: #49604b; font: 16px/1.55 'DM Sans', sans-serif; }
+.card-text { margin: 0; max-width: 560px; color: var(--ink-soft); font: 16px/1.55 'DM Sans', sans-serif; }
 
 .checkbox{
     width: 50px;          
