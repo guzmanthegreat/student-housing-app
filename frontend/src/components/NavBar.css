@@ -1,88 +1,63 @@
 .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 50;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--primary);
-  border-bottom: 2px solid var(--surface-deep);
-  height: 72px;
-  padding: 0 clamp(18px, 4vw, 52px);
-  backdrop-filter: blur(14px);
+  background: var(--surface);
+  border-bottom: 3px solid var(--primary);
+  height: 56px;
   box-sizing: border-box;
 }
 
 .navbar-links {
   display: flex;
-  gap: 28px;
-  padding-left: clamp(20px, 4vw, 54px);
+  gap: 40px;
+  padding-left: 30px;
 }
 
 .navbar-right {
   display: flex;
-  gap: 22px;
+  gap: 40px;
   margin-left: auto;
-  padding-right: 0;
+  padding-right: 30px;
 }
 
 .logout-btn {
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--ink);
+  color: var(--text);
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 18px;
   padding: 0;
   transition: color 0.2s ease;
 }
 
 .logout-btn:hover {
-  color: var(--surface-deep);
+  color: var(--primary);
 }
 
 .navbar a {
-  color: var(--ink);
+  color: var(--text);
   text-decoration: none;
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 18px;
   transition: color 0.2s ease;
 }
 
 .navbar a:hover {
-  color: var(--surface-deep);
+  color: var(--primary);
 }
 
 .navbar-brand a {
   font-family: 'Freshman', serif;
-  font-size: 28px;
-  color: var(--ink);
-  padding-left: 0;
+  font-size: 24px;
+  color: var(--primary);
+  padding-left: 24px;
   letter-spacing: 1px;
 }
 
-.navbar-login,
-.user-profile {
-  border-radius: 999px;
-  padding: 9px 16px;
-}
-
-.navbar-login { padding: 8px 16px; }
-.navbar-login.secondary-action { background: var(--surface-deep); color: var(--text); }
-.navbar-login.secondary-action:hover { background: var(--surface); color: var(--text); }
-
-@media (max-width: 640px) {
-  .navbar { height: 64px; }
-  .navbar-links { gap: 12px; padding-left: 14px; }
-  .navbar-links a:not(:first-child) { display: none; }
-  .navbar-right { gap: 8px; }
-  .navbar-brand a { font-size: 24px; }
-  .navbar a, .logout-btn { font-size: 13px; }
-  .navbar-login, .user-profile { padding: 7px 11px; }
-}
-
 .navbar-brand a:hover {
-  color: var(--surface-deep);
+  color: var(--text);
 }

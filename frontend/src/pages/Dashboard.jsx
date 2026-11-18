@@ -139,12 +139,10 @@ const Dashboard = ({ userId }) => {
 
   const username = profile?.name ?? "";   
   const roomNum = profile?.room_num;
-  const openChores = chores.filter((chore) => !chore.is_finished);
-  const nextChore = [...openChores].sort((a, b) => new Date(a.due_date) - new Date(b.due_date))[0];
-  const nextDue = nextChore ? new Date(nextChore.due_date).toLocaleDateString(undefined, { month: "short", day: "numeric" }) : "—";
 
   return (
     <div className="dashboard">
+      {/* Sidebar with profile and navigation links */}
       <aside className="sidebar">
         <div className="profile">
           <div className="profile-pic">
@@ -168,35 +166,16 @@ const Dashboard = ({ userId }) => {
 
         <nav className="nav-menu">
           <ul>
-            <li className="is-active">Overview</li>
-            <li onClick={() => navigate("/chores")}>Chores</li>
-            <li onClick={() => navigate("/bills")}>Shared bills</li>
             <li onClick={handleCalendarClick}>Calendar</li>
+            <li onClick={() => navigate("/chores")}>Chores</li>
+            <li onClick={() => navigate("/bills")}>Bills</li>
           </ul>
         </nav>
       </aside>
 
-      <main className="main-content dashboard-main">
-        <header className="dashboard-header">
-          <div>
-            <p className="section-kicker">HOUSE {roomNum || "—"}</p>
-            <h1>Hey, {username || "there"}.</h1>
-            <p>Here’s what needs attention at home.</p>
-          </div>
-          <button className="dashboard-primary" onClick={() => navigate("/create-chore", { state: { userId, room_num: roomNum } })}>+ Chore</button>
-        </header>
-
-        <section className="dashboard-stats" aria-label="Household summary">
-          <div className="stat-card"><span>Open chores</span><strong>{openChores.length}</strong></div>
-          <div className="stat-card"><span>Next due</span><strong>{nextDue}</strong></div>
-          <div className="stat-card"><span>Room number</span><strong>{roomNum || "—"}</strong></div>
-        </section>
-
-        <section className="chore-card dashboard-panel">
-          <div className="panel-heading">
-            <div><p className="section-kicker">KEEP THE HOUSE MOVING</p><h2>Chores</h2></div>
-            <button className="text-action" onClick={() => navigate("/chores")}>All chores</button>
-          </div>
+      <main className="main-content">
+        <div className="chore-card">
+          <h2>Your Chore List</h2>
           <div className="chore-list">
             {roomNum == null && (
               <p className="chore-empty">Loading your profile…</p>
@@ -206,7 +185,7 @@ const Dashboard = ({ userId }) => {
             )}
             {roomNum != null &&
               chores.length > 0 &&
-              chores.slice(0, 4).map((chore) => {
+              chores.map((chore) => {
                 const due = new Date(chore.due_date).toLocaleDateString();
                 const statusClass = chore.is_finished ? "done" : "pending";
 
@@ -229,21 +208,19 @@ const Dashboard = ({ userId }) => {
                 );
               })}
           </div>
-        </section>
+        </div>
       </main>
 
-      <aside className="right-notes dashboard-aside">
-        <section className="house-card">
-          <p className="section-kicker">YOUR CAMPUS HOUSE</p>
-          <h2>Room {roomNum || "—"}</h2>
-          <p>Keep the apartment out of the group-chat maze.</p>
-        </section>
-        <section className="quick-actions">
-          <p className="section-kicker">QUICK ACTIONS</p>
-          <button onClick={() => navigate("/create-chore", { state: { userId, room_num: roomNum } })}>Chore <span>→</span></button>
-          <button onClick={() => navigate("/bills")}>Receipt <span>→</span></button>
-          <button onClick={handleCalendarClick}>Plan <span>→</span></button>
-        </section>
+      <aside className="right-notes">
+        <div className="quote-card">
+          <p>“On Wednesdays, We Wear Pink”</p>
+          <p>“That's So Fetch!”</p>
+        </div>
+        <div className="divider">✧ ✦ ✧</div>
+        <div className="bills-card">
+          <p><strong>Keep your place running smoothly</strong></p>
+          <p><span>Track chores, shared bills, and plans from one dashboard.</span></p>
+        </div>
       </aside>
     </div>
   );

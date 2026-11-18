@@ -12,32 +12,30 @@
 }
 
 .card.choreCard{
-  position: relative;
-  width: 100%;
-  min-height: 190px;
-  padding: 26px 28px 70px;
-  border: 1px solid rgba(25,53,34,.12);
-  border-radius: var(--radius-md);
-  background: var(--paper);
-  color: var(--ink);
-  box-shadow: 0 12px 28px rgba(2,48,71,.14);
-  text-align: left;
-  transition: transform .2s ease, box-shadow .2s ease;
+    background-color: lightgoldenrodyellow;
+     background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 1.8rem, /* space between lines */
+    #aaa 1.9rem           /* line thickness */
+  );
+
+  font-family: "Freshman", serif;
+  font-size: 1.6rem;
+  padding:0;
+  text-align: center;
 }
-.card.choreCard:hover { transform: translateY(-3px); box-shadow: 0 18px 34px rgba(2,48,71,.18); }
-.card.choreCard.is-finished { opacity: .72; }
-.card.choreCard.is-finished .card-title { text-decoration: line-through; }
-.card.choreCard .card-body { padding: 0; }
 
 .card.choreCard .card-title {
   font-family: "Oregano", serif;
-  font-size: clamp(25px, 4vw, 36px);
-  color: var(--ink);
-  margin: 0 70px 8px 0;
-  line-height: 1;
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 23px;
+  position: relative;
+  top: 5px;
+  text-align: left;
+  padding-left: 18px;
 }
-.card-due-date { margin: 0 0 14px; color: var(--accent); font: 700 13px 'DM Sans', sans-serif; text-transform: uppercase; letter-spacing: .06em; }
-.card-text { margin: 0; max-width: 560px; color: var(--ink-soft); font: 16px/1.55 'DM Sans', sans-serif; }
 
 .checkbox{
     width: 50px;          
@@ -46,31 +44,28 @@
     border-radius: 4px;    
     background-color: transparent; 
     position: absolute;     
-    top: 20px;
-    right: 20px;
-    width: 44px; height: 44px;
-    border: 1px solid var(--accent);
-    background: var(--paper-soft);
+    top: 24px;              
+    right: 35px;   
 }
 
 .checkbox-img {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 62px;
-  height: 62px;
+  width: 80px; /* adjust size */
+  height: 80px;
   pointer-events: none; /* click goes through to button */
   transform: translate(-50%, -50%) rotate(-15deg);
 }
 
 .delete-btn{
   position:absolute;
-  width: 40px;
-  height: 40px;
+  width: 50px;             
+  height: 50px;            
   border-radius: 50%;     
   border: none;            
   background-color: transparent;  
-  border: 1px solid var(--line);
+  border: 2px solid black;
   display: flex;         
   justify-content: center;
   align-items: center;
@@ -79,18 +74,18 @@
   transition: background-color 0.3s ease; 
   overflow: visible;   
   box-shadow: none;  
-  left: 20px!important;
-  bottom: 18px!important;
+  left: 10px!important;
+  bottom: 10px!important;
 }
 
  .edit-btn{
    position:absolute;
-  width: 40px;
-  height: 40px;
+  width: 50px;             
+  height: 50px;            
   border-radius: 50%;     
   border: none;            
   background-color: transparent;  
-  border: 1px solid var(--line);
+  border: 2px solid black;
   display: flex;         
   justify-content: center;
   align-items: center;
@@ -98,27 +93,22 @@
   padding: 0;    
   transition: background-color 0.3s ease; 
   overflow: visible;  
-  left: 70px;
-  bottom: 18px;
+  left: 78px;
+  bottom: 10px;
   box-shadow: none;
  }
 
 .delete-btn img, .edit-btn img{
-  height: 20px;
-  width: 20px;
+  height: 30px;
+  width: 30x;
 }
 
 .delete-btn:hover{
   background-color: #b42318;
-  border: 1px solid #b42318;
+  border: 2px solid black;
 }
 
 .edit-btn:hover{
   background-color: var(--primary);
-  border: 1px solid var(--accent);
-}
-
-@media (max-width: 520px) {
-  .card.choreCard { padding: 22px 18px 66px; }
-  .card.choreCard .card-title { margin-right: 50px; }
+  border: 2px solid black;
 }

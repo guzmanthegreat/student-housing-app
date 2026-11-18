@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 
 // Icons
@@ -10,7 +10,7 @@ import { api } from "../lib/api";
 export default function Login({ session, onLogin }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const [action, setAction] = useState("Welcome back.");
+  const [action, setAction] = useState("Log into Roomies!");
 
   // Track input fields
   const [username, setUsername] = useState(""); // Must be username for backend login
@@ -70,16 +70,14 @@ export default function Login({ session, onLogin }) {
   return (
     <div className="gil-auth">
       <div className="container">
-        <Link className="auth-brand" to="/">Roomies</Link>
         <div className="header">
-          <p className="auth-kicker">Welcome back</p>
           <div className="text">{action}</div>
-          <p className="auth-subtitle">Keep your house moving.</p>
+          <div className="underline"></div>
         </div>
 
         <div className="inputs">
           {/* Name (Sign Up only) */}
-          {action === "Welcome back." ? null : (
+          {action === "Log into Roomies!" ? null : (
             <div className="input">
               <img src={user_icon} alt="user" />
               <input type="text" placeholder="Your Full Fetch Name" />
@@ -92,8 +90,6 @@ export default function Login({ session, onLogin }) {
             <input
               type="text"
               placeholder="Username"
-              aria-label="Username"
-              autoComplete="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
@@ -105,8 +101,6 @@ export default function Login({ session, onLogin }) {
             <input
               type="password"
               placeholder="Password"
-              aria-label="Password"
-              autoComplete="current-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -124,34 +118,23 @@ export default function Login({ session, onLogin }) {
 
         {/* Buttons */}
         <div className="submit-container">
-          <button
-            type="button"
+          <div
             className={
               action === "Create an Account" ? "submit gray" : "submit"
             }
             onClick={() => navigate("/signup")} // Redirect to signup
           >
-            Sign up
-          </button>
-          <button
-            type="button"
+            Create an Account
+          </div>
+          <div
             className={
-              action === "Welcome back." ? "submit gray" : "submit"
+              action === "Log into Roomies!" ? "submit gray" : "submit"
             }
             onClick={handleLogin} // Call login
           >
-            Log in
-          </button>
+            Log in!
+          </div>
         </div>
-        <p className="auth-switch">New to Roomies? <Link to="/signup">Create an account</Link></p>
-      </div>
-      <div className="auth-panel">
-        <p className="auth-panel-label">ROOMIES / 01</p>
-        <div>
-          <p className="auth-panel-kicker">Less chasing.<br />More living.</p>
-          <p className="auth-panel-copy">Chores, shared bills, and house plans in one place.</p>
-        </div>
-        <p className="auth-panel-footer">Your house, sorted.</p>
       </div>
     </div>
   );

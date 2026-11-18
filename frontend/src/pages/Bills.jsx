@@ -130,9 +130,7 @@ export default function BillsPage({ roomNum }) {
 
   return (
     <div className="bills-page">
-      <p className="section-kicker">SHARED HOUSE SPENDING</p>
-      <h1 className="page-title">Shared bills</h1>
-      <p className="bills-intro">Scan a receipt, save it for the house, and split it when you’re ready.</p>
+      <h1 className="page-title">Bills / Receipts</h1>
 
       <div>
         {uploadError && <p className="upload-error">{uploadError}</p>}
@@ -146,7 +144,7 @@ export default function BillsPage({ roomNum }) {
           onChange={handleFileChange}
         />
         <button className="upload-button" onClick={handleUpload}>
-          Scan a receipt
+          Upload Receipt
         </button>
       </div>
 

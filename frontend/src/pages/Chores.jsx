@@ -92,17 +92,11 @@ function Chores({ userId, room_num}) {
     displayedChores = [...chores]; // no filter
   }
   return (
-    <div className="chore-container">
-      <div className="chores-header">
-        <div>
-          <p className="section-kicker">YOUR HOUSE TO-DO LIST</p>
-          <h1 className="chore-title">Keep the apartment moving.</h1>
-          <p className="section-subtitle">Everyone sees what needs doing. Nobody has to chase the group chat.</p>
-        </div>
-        <button className="create-chore-btn" onClick={() => navigate("/create-chore", { state: { userId, room_num } })}>+ Add</button>
-      </div>
+    <div className="chore-container mt- main-container">
+       <button className="create-chore-btn" onClick={() => navigate("/create-chore", { state: { userId, room_num } })}> Add a new <br/>chore! </button>
+      <h1 className="text-center mt-4 fs-1 mb-5 chore-title">Your Chore List</h1>
       
-      <div className="filter-container">
+      <div className="mb-4 d-flex flex-row align-items-center gap-4 justify-content-center mx-auto mt-4 mb-5 filter-container" style={{ maxWidth: '700px' }}>
         <span className="fw-bold">Filter by:</span>
       <button
         className={`btn filter-btn ${selectedFilter === "unfinished-chores" ? "active" : ""}`}
@@ -125,7 +119,9 @@ function Chores({ userId, room_num}) {
 
      
       </div>
-      <div className="chores-list">
+       <div>
+
+      <div className="d-flex flex-column align-items-center gap-5">
           {
   
         displayedChores.map((chore)=>(
@@ -142,6 +138,7 @@ function Chores({ userId, room_num}) {
           />
         ))}
       </div>
+    </div>
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

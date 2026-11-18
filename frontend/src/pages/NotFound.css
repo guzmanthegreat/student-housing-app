@@ -21,7 +21,3 @@
     color: var(--text);
     margin-top: 20px;
 }
-
-.not-found { min-height: calc(100dvh - 72px); display: grid; place-content: center; text-align: center; padding: 24px; }
-.not-found h1 { padding: 0; margin: 0; font-size: clamp(110px, 24vw, 250px); line-height: .8; }
-.not-found p { padding: 0; margin: 28px 0 0; font-size: clamp(22px, 4vw, 34px); }

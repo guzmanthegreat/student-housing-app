@@ -11,7 +11,7 @@ import { api } from "../lib/api";
 export default function Signup({ session, onLogin }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const action = "Join your house.";
+  const action = "Create an Account!";
 
   // form state
   const [name, setName] = useState("");
@@ -79,11 +79,9 @@ export default function Signup({ session, onLogin }) {
   return (
     <div className="jp-auth">
       <div className="container">
-        <a className="auth-brand" href="/">Roomies</a>
         <div className="header">
-          <p className="auth-kicker">Get started</p>
           <div className="text">{action}</div>
-          <p className="auth-subtitle">Set up your shared home in a minute.</p>
+          <div className="underline"></div>
         </div>
 
         <div className="inputs">
@@ -91,10 +89,7 @@ export default function Signup({ session, onLogin }) {
             <img src={user_icon} alt="user" />
             <input
               type="text"
-              placeholder="Your name"
-              aria-label="First name"
-              autoComplete="name"
-              autoFocus
+              placeholder="First Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -104,9 +99,7 @@ export default function Signup({ session, onLogin }) {
             <img src={room_icon} alt="room" />
             <input
               type="text"
-              placeholder="Room or house number"
-              aria-label="Room number"
-              inputMode="numeric"
+              placeholder="Room Number"
               value={roomNum}
               onChange={(e) => setRoomNum(e.target.value)}
             />
@@ -116,9 +109,7 @@ export default function Signup({ session, onLogin }) {
             <img src={email_icon} alt="email" />
             <input
               type="email"
-              placeholder="Email address"
-              aria-label="Email address"
-              autoComplete="email"
+              placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -128,9 +119,7 @@ export default function Signup({ session, onLogin }) {
             <img src={password_icon} alt="password" />
             <input
               type="password"
-              placeholder={"Create a password"}
-              aria-label="Create a password"
-              autoComplete="new-password"
+              placeholder={"Create a Password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -140,21 +129,12 @@ export default function Signup({ session, onLogin }) {
           {errorMessage && <div className="auth-message">{errorMessage}</div>}
         </div>
 
-        <p className="signup-helper">Use the room number your housemates share. You can start adding chores right away.</p>
         <div className="submit-container">
-          <button type="button" className="submit" onClick={handleSignup}>
-            Join
-          </button>
+          {/* actually signs up */}
+          <div className="submit" onClick={handleSignup}>
+            Submit!
+          </div>
         </div>
-        <p className="auth-switch">Already have an account? <a href="/login">Log in</a></p>
-      </div>
-      <div className="auth-panel">
-        <p className="auth-panel-label">ROOMIES / 01</p>
-        <div>
-          <p className="auth-panel-kicker">A better house<br />starts here.</p>
-          <p className="auth-panel-copy">Invite your roommates, split the work, and keep the peace.</p>
-        </div>
-        <p className="auth-panel-footer">Your house, sorted.</p>
       </div>
     </div>
   );
