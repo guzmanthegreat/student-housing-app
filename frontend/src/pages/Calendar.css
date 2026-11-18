@@ -18,6 +18,7 @@
 
 .calendar-card { border: 1px solid var(--line); box-shadow: var(--shadow); }
 .calendar-title { font-family: 'Freshman', serif; font-size: clamp(38px, 6vw, 62px); line-height: .95; }
+.calendar-kicker { margin: 0 0 8px; color: var(--accent); font: 700 11px/1.2 'DM Sans', sans-serif; letter-spacing: .16em; }
 
 /* header row */
 .calendar-header-row {

@@ -41,7 +41,7 @@ function CreateChore() {
     return(
         <div className="text-center text-primary mt-5 create-chore-container">
             
-            <h1 className="create-chore-title">Add A New Chore!</h1>
+            <h1 className="create-chore-title">Add a house chore</h1>
                     <button className="back-button" onClick={()=> navigate('../chores')}>Back to Chores</button>
 
         <div className="container shadow rounded p-4 input-container"
@@ -62,7 +62,7 @@ function CreateChore() {
                         type="text"
                         className="form-control"
                         id="choreTitle"
-                        placeholder="Enter chore name!"
+                        placeholder="e.g. Take out the trash"
                         value={chore.chore_name}
                         onChange={(e) => setChore({ ...chore, chore_name: e.target.value })}
                         />
@@ -89,7 +89,7 @@ function CreateChore() {
                         className="form-control"
                         id="description"
                         rows="5"
-                        placeholder="Enter details about the chore!"
+                        placeholder="Add any details your housemates need"
                         value={chore.description}
                         onChange={(e) => setChore({ ...chore, description: e.target.value })}
                         />
@@ -102,7 +102,7 @@ function CreateChore() {
                   )}
 
                     <button type="submit" className="btn btn-primary mt-5 submit-chore-btn">
-                        Add Chore!
+                        Add chore
                         </button>
             </form>
         </div>

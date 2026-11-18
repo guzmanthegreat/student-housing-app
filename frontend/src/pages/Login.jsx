@@ -10,7 +10,7 @@ import { api } from "../lib/api";
 export default function Login({ session, onLogin }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const [action, setAction] = useState("Log into Roomies!");
+  const [action, setAction] = useState("Welcome back.");
 
   // Track input fields
   const [username, setUsername] = useState(""); // Must be username for backend login
@@ -77,7 +77,7 @@ export default function Login({ session, onLogin }) {
 
         <div className="inputs">
           {/* Name (Sign Up only) */}
-          {action === "Log into Roomies!" ? null : (
+          {action === "Welcome back." ? null : (
             <div className="input">
               <img src={user_icon} alt="user" />
               <input type="text" placeholder="Your Full Fetch Name" />
@@ -134,7 +134,7 @@ export default function Login({ session, onLogin }) {
           <button
             type="button"
             className={
-              action === "Log into Roomies!" ? "submit gray" : "submit"
+              action === "Welcome back." ? "submit gray" : "submit"
             }
             onClick={handleLogin} // Call login
           >

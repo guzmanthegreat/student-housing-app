@@ -179,7 +179,7 @@ const Dashboard = ({ userId }) => {
       <main className="main-content dashboard-main">
         <header className="dashboard-header">
           <div>
-            <p className="section-kicker">ROOM {roomNum || "—"}</p>
+            <p className="section-kicker">HOUSE {roomNum || "—"}</p>
             <h1>Hey, {username || "there"}.</h1>
             <p>Here’s what needs attention at home.</p>
           </div>
@@ -189,7 +189,7 @@ const Dashboard = ({ userId }) => {
         <section className="dashboard-stats" aria-label="Household summary">
           <div className="stat-card"><span>Open chores</span><strong>{openChores.length}</strong></div>
           <div className="stat-card"><span>Next due</span><strong>{nextDue}</strong></div>
-          <div className="stat-card"><span>Your room</span><strong>{roomNum || "—"}</strong></div>
+          <div className="stat-card"><span>Room number</span><strong>{roomNum || "—"}</strong></div>
         </section>
 
         <section className="chore-card dashboard-panel">
@@ -234,15 +234,15 @@ const Dashboard = ({ userId }) => {
 
       <aside className="right-notes dashboard-aside">
         <section className="house-card">
-          <p className="section-kicker">YOUR HOUSEHOLD</p>
+          <p className="section-kicker">YOUR CAMPUS HOUSE</p>
           <h2>Room {roomNum || "—"}</h2>
-          <p>One place for the things everyone needs to know.</p>
+          <p>Keep the apartment out of the group-chat maze.</p>
         </section>
         <section className="quick-actions">
           <p className="section-kicker">QUICK ACTIONS</p>
           <button onClick={() => navigate("/create-chore", { state: { userId, room_num: roomNum } })}>Add a chore <span>→</span></button>
-          <button onClick={() => navigate("/bills")}>Upload a receipt <span>→</span></button>
-          <button onClick={handleCalendarClick}>Plan something <span>→</span></button>
+          <button onClick={() => navigate("/bills")}>Split a receipt <span>→</span></button>
+          <button onClick={handleCalendarClick}>Add a house plan <span>→</span></button>
         </section>
       </aside>
     </div>

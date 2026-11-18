@@ -94,9 +94,9 @@ export default function CalendarPage() {
     <div className="calendar-page">
       <div className="calendar-card">
         <div className="calendar-header-row">
-          <h2 className="calendar-title">Your Calendar</h2>
+          <div><p className="section-kicker calendar-kicker">HOUSE PLANS</p><h2 className="calendar-title">Your house calendar</h2></div>
           <button className="calendar-create-btn" onClick={openModal}>
-            + New Event
+            + Add a plan
           </button>
         </div>
 
@@ -138,7 +138,7 @@ export default function CalendarPage() {
             className="calendar-modal"
             onClick={(e) => e.stopPropagation()}
           >
-            <h3>Create Event</h3>
+            <h3>Add a house plan</h3>
             <form onSubmit={handleCreateEvent} className="calendar-form">
               <label>
                 Title
@@ -147,7 +147,7 @@ export default function CalendarPage() {
                   type="text"
                   value={form.title}
                   onChange={handleChange}
-                  placeholder="Movie night, study session..."
+                  placeholder="Study session, dinner, game night..."
                 />
               </label>
 

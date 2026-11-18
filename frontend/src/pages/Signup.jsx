@@ -11,7 +11,7 @@ import { api } from "../lib/api";
 export default function Signup({ session, onLogin }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const action = "Create an Account!";
+  const action = "Join your house.";
 
   // form state
   const [name, setName] = useState("");
@@ -89,7 +89,7 @@ export default function Signup({ session, onLogin }) {
             <img src={user_icon} alt="user" />
             <input
               type="text"
-              placeholder="First Name"
+              placeholder="Your name"
               aria-label="First name"
               autoComplete="name"
               autoFocus
@@ -102,7 +102,7 @@ export default function Signup({ session, onLogin }) {
             <img src={room_icon} alt="room" />
             <input
               type="text"
-              placeholder="Room Number"
+              placeholder="Room or house number"
               aria-label="Room number"
               inputMode="numeric"
               value={roomNum}
@@ -114,7 +114,7 @@ export default function Signup({ session, onLogin }) {
             <img src={email_icon} alt="email" />
             <input
               type="email"
-              placeholder="Email"
+              placeholder="Email address"
               aria-label="Email address"
               autoComplete="email"
               value={email}
@@ -126,7 +126,7 @@ export default function Signup({ session, onLogin }) {
             <img src={password_icon} alt="password" />
             <input
               type="password"
-              placeholder={"Create a Password"}
+              placeholder={"Create a password"}
               aria-label="Create a password"
               autoComplete="new-password"
               value={password}
@@ -138,10 +138,10 @@ export default function Signup({ session, onLogin }) {
           {errorMessage && <div className="auth-message">{errorMessage}</div>}
         </div>
 
-        <p className="signup-helper">Create your room and start keeping the household moving.</p>
+        <p className="signup-helper">Use the room number your housemates share. You can start adding chores right away.</p>
         <div className="submit-container">
           <button type="button" className="submit" onClick={handleSignup}>
-            Create my account
+            Join Roomies
           </button>
         </div>
       </div>

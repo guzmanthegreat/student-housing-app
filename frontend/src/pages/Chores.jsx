@@ -95,9 +95,9 @@ function Chores({ userId, room_num}) {
     <div className="chore-container">
       <div className="chores-header">
         <div>
-          <p className="section-kicker">THE HOUSE TO-DO LIST</p>
-          <h1 className="chore-title">Chores that feel fair.</h1>
-          <p className="section-subtitle">Keep the little things from becoming a big thing.</p>
+          <p className="section-kicker">YOUR HOUSE TO-DO LIST</p>
+          <h1 className="chore-title">Keep the apartment moving.</h1>
+          <p className="section-subtitle">Everyone sees what needs doing. Nobody has to chase the group chat.</p>
         </div>
         <button className="create-chore-btn" onClick={() => navigate("/create-chore", { state: { userId, room_num } })}>+ Add chore</button>
       </div>

@@ -38,7 +38,7 @@ export default function Home() {
     <main className="home-page">
       <section className="home-hero">
         <div className="home-copy">
-          <p className="home-eyebrow">THE SHARED HOME, SORTED</p>
+          <p className="home-eyebrow">YOUR CAMPUS HOUSE, SORTED</p>
           <h1>Everything your household needs to stay on top of.</h1>
           <p className="home-subtitle">Roomies keeps chores, shared bills, and house plans in one simple place—so nobody has to ask, “Wait, who’s doing that?”</p>
         </div>

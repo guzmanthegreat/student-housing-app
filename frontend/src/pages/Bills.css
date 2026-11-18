@@ -26,6 +26,9 @@
   padding-left: 0;
 }
 
+.bills-page > .section-kicker { margin: 0 0 8px; color: var(--accent); font: 700 11px/1.2 'DM Sans', sans-serif; letter-spacing: .16em; text-align: center; }
+.bills-intro { max-width: 520px; margin: -16px auto 26px; color: var(--ink-soft); font: 15px/1.5 'DM Sans', sans-serif; text-align: center; }
+
 .upload-container {
   display: flex;
   align-items: center;
