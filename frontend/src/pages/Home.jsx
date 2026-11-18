@@ -37,7 +37,11 @@ export default function Home() {
   return (
     <main className="home-page">
       <section className="home-hero">
-        <h1>Join Ur Roomies Today!</h1>
+        <div className="home-copy">
+          <p className="home-eyebrow">THE SHARED HOME, SORTED</p>
+          <h1>Make room for a better roommate life.</h1>
+          <p className="home-subtitle">Chores, bills, plans, and the little things that keep your place feeling like home—all in one cute little corner.</p>
+        </div>
 
         <div className="carousel-swiper">
           <Swiper
@@ -58,15 +62,13 @@ export default function Home() {
 
         <div className="cta-row">
           {user ? (
-            <div></div>
+            <Link className="submit primary" to="/dashboard">Open your dashboard</Link>
           ) : (
             <div className="submit-container">
-              <Link className="submit primary" to="/login">
-                Log in
-              </Link>
-              <Link className="submit secondary" to="/signup">
+              <Link className="submit primary" to="/signup">
                 Create an Account
               </Link>
+              <Link className="submit secondary" to="/login">Log in</Link>
             </div>
           )}
         </div>

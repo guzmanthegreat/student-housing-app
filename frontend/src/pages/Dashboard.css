@@ -268,6 +268,46 @@ works for everyone else too */
   margin-right: 50px;
 }
 
+/* Product dashboard polish */
+.dashboard {
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  grid-template-columns: 220px minmax(0, 1fr) 250px;
+  gap: clamp(18px, 3vw, 40px);
+  padding: clamp(22px, 4vw, 48px);
+}
+.sidebar {
+  width: 100%;
+  margin-top: 0;
+  border: 1px solid rgba(197,232,121,.2);
+  box-shadow: var(--shadow);
+}
+.nav-menu ul { gap: 10px; padding: 0 14px; }
+.nav-menu li { width: 100%; font-family: 'DM Sans', sans-serif; font-size: 15px; }
+.main-content { min-width: 0; }
+.chore-card { width: 100%; max-width: 680px; min-height: 520px; margin: 0 auto; border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+.right-notes { margin: 0; gap: 28px; }
+.quote-card, .bills-card { width: 100%; border-radius: var(--radius-md); }
+
+@media (max-width: 1050px) {
+  .dashboard { grid-template-columns: 190px minmax(0, 1fr); }
+  .right-notes { grid-column: 1 / -1; flex-direction: row; margin-top: 0; }
+  .right-notes > * { flex: 1; }
+}
+
+@media (max-width: 700px) {
+  .dashboard { display: flex; flex-direction: column; padding: 20px 16px 42px; }
+  .sidebar { order: 0; padding: 16px; }
+  .profile-pic { width: 76px; height: 76px; margin: 0 auto 8px; }
+  .greeting { margin: 0; font-size: 20px; }
+  .nav-menu { margin-top: 16px; }
+  .nav-menu ul { flex-direction: row; gap: 8px; }
+  .nav-menu li { padding: 11px 5px; }
+  .right-notes { flex-direction: column; width: 100%; }
+  .chore-card { min-height: 0; padding: 18px 14px; }
+  .chore-list { max-height: none; }
+}
+
 /* divider between sticky notes */
 .divider {
   text-align: center;

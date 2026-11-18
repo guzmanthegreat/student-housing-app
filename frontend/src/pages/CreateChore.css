@@ -15,13 +15,17 @@
     min-height: 100vh;
     width: 100%;
     background-color: var(--bg);
-    padding-bottom: 50px;
+    padding: 48px 18px 72px;
        
 }
 
 .input-container{
     background-color: var(--paper);
-    border: 1px solid var(--accent);
+    width: min(100%, 620px) !important;
+    min-height: 0 !important;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow) !important;
 }
 .form-label{
     font-family: 'Oregano', serif;
@@ -86,6 +90,15 @@
     font-size: 1.5rem;
     box-shadow: 4px 4px 6px rgba(0,0,0,0.2); /* depth */
     transition: transform 0.2s;
+}
+
+.create-chore-title { font-size: clamp(42px, 8vw, 72px); text-align: center; line-height: .95; }
+.back-button { position: static; align-self: flex-start; margin-bottom: 10px; padding: 10px 15px; border: 1px solid rgba(197,232,121,.3); border-radius: 999px; font: 700 14px 'DM Sans', sans-serif; box-shadow: none; }
+.back-button:hover { transform: translateY(-2px); }
+.chore-input input, .chore-input textarea { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+
+@media (max-width: 620px) {
+  .back-button { align-self: stretch; text-align: center; }
 }
 
 .back-button:hover{

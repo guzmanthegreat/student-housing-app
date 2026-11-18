@@ -90,6 +90,9 @@ export default function Signup({ session, onLogin }) {
             <input
               type="text"
               placeholder="First Name"
+              aria-label="First name"
+              autoComplete="name"
+              autoFocus
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -100,6 +103,8 @@ export default function Signup({ session, onLogin }) {
             <input
               type="text"
               placeholder="Room Number"
+              aria-label="Room number"
+              inputMode="numeric"
               value={roomNum}
               onChange={(e) => setRoomNum(e.target.value)}
             />
@@ -110,6 +115,8 @@ export default function Signup({ session, onLogin }) {
             <input
               type="email"
               placeholder="Email"
+              aria-label="Email address"
+              autoComplete="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -120,6 +127,8 @@ export default function Signup({ session, onLogin }) {
             <input
               type="password"
               placeholder={"Create a Password"}
+              aria-label="Create a password"
+              autoComplete="new-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -129,11 +138,11 @@ export default function Signup({ session, onLogin }) {
           {errorMessage && <div className="auth-message">{errorMessage}</div>}
         </div>
 
+        <p className="signup-helper">Create your room and start keeping the household moving.</p>
         <div className="submit-container">
-          {/* actually signs up */}
-          <div className="submit" onClick={handleSignup}>
-            Submit!
-          </div>
+          <button type="button" className="submit" onClick={handleSignup}>
+            Create my account
+          </button>
         </div>
       </div>
     </div>

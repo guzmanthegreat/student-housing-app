@@ -90,6 +90,8 @@ export default function Login({ session, onLogin }) {
             <input
               type="text"
               placeholder="Username"
+              aria-label="Username"
+              autoComplete="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
@@ -101,6 +103,8 @@ export default function Login({ session, onLogin }) {
             <input
               type="password"
               placeholder="Password"
+              aria-label="Password"
+              autoComplete="current-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -118,22 +122,24 @@ export default function Login({ session, onLogin }) {
 
         {/* Buttons */}
         <div className="submit-container">
-          <div
+          <button
+            type="button"
             className={
               action === "Create an Account" ? "submit gray" : "submit"
             }
             onClick={() => navigate("/signup")} // Redirect to signup
           >
             Create an Account
-          </div>
-          <div
+          </button>
+          <button
+            type="button"
             className={
               action === "Log into Roomies!" ? "submit gray" : "submit"
             }
             onClick={handleLogin} // Call login
           >
             Log in!
-          </div>
+          </button>
         </div>
       </div>
     </div>

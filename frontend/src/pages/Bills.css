@@ -5,31 +5,36 @@
 }
 
 .bills-page {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
-  font-family: "Barbie", "Freshman", serif;
-  background-color: var(--paper);
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  border: 4px dashed var(--primary);
+  width: min(920px, calc(100% - 32px));
+  margin: clamp(28px, 5vw, 64px) auto;
+  padding: clamp(22px, 4vw, 44px);
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
 }
 
 .page-title {
   color: var(--ink);
-  font-size: 3rem;
+  font-family: 'Freshman', serif;
+  font-size: clamp(40px, 7vw, 70px);
   text-align: center; 
   font-weight: bold;
-  margin-bottom: 3rem;
-  text-shadow: 1.5px 1.5px var(--primary);
-  padding-left: 3rem; 
+  margin: 0 0 28px;
+  text-shadow: none;
+  padding-left: 0;
 }
 
 .upload-container {
   display: flex;
   align-items: center;
   gap: 1rem; /* small space between file input and upload button */
-  margin-bottom: 4rem;
+  margin-bottom: 28px;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  background: var(--paper-soft);
+  border: 1px dashed var(--accent);
 }
 
 /* File input container */
@@ -104,9 +109,9 @@
   background-color: var(--text);
   border: 2px solid var(--accent);
   border-radius: 12px;
-  padding: 14px 24px;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.07);
 }
 
 /* Icon stays left */
@@ -270,6 +275,15 @@
   margin-top: 0.8rem;
   color: #b42318;
   font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .upload-container { align-items: stretch; flex-direction: column; }
+  .upload-container input[type="file"] { max-width: none; width: 100%; }
+  .upload-button { width: 100%; }
+  .bill-info { min-width: 0; gap: 12px; }
+  .bill-title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .bill-total { white-space: nowrap; }
 }
 
 .split-result {

@@ -22,17 +22,14 @@ export default function ChoreCard({ title, dueDate, description, onDelete, onMar
   };
 
   return (
-    <div
-      className="card shadow rounded choreCard"  
-      style={{ width: '42rem', height:'21rem' }}
-    >
+    <article className={`card choreCard ${checked ? "is-finished" : ""}`}>
       <div className="card-body" >
         <h5 className="card-title">{title}</h5>
-        <h4 className="card-due-date">Due: {formattedDueDate}</h4>
-        <p className="card-text">{description}</p>
+        <p className="card-due-date">Due {formattedDueDate}</p>
+        <p className="card-text">{description || "No details added yet."}</p>
       </div>
 
-       <button className="checkbox" style={{ padding: '1rem' }} onClick={handleCheckboxClick}>
+       <button className="checkbox" onClick={handleCheckboxClick} aria-label={checked ? "Mark chore incomplete" : "Mark chore complete"}>
         {checked && (
           <img
             src={kiss}
@@ -41,14 +38,14 @@ export default function ChoreCard({ title, dueDate, description, onDelete, onMar
           />
         )}
       </button>
-      <button className="delete-btn" style={{padding:'1rem'}} onClick={onDelete}>
+      <button className="delete-btn" onClick={onDelete} aria-label="Delete chore">
         <img src={bin} alt="delete" />
       </button>
 
-      <button className="edit-btn" style={{padding:'1rem'}} onClick={onEdit}>
+      <button className="edit-btn" onClick={onEdit} aria-label="Edit chore">
         <img src={pencil} alt="edit" />
       </button>
 
-    </div>
+    </article>
   );
 }

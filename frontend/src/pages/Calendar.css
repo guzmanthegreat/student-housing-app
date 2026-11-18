@@ -4,17 +4,20 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 40px 20px;
-  font-family: "Freshman", serif;
+  padding: clamp(24px, 5vw, 64px) 16px;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .calendar-card {
   width: min(1100px, 100%);
   background: var(--paper);
   border-radius: 22px;
-  padding: 24px 28px 30px;
+  padding: clamp(18px, 4vw, 34px);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
 }
+
+.calendar-card { border: 1px solid var(--line); box-shadow: var(--shadow); }
+.calendar-title { font-family: 'Freshman', serif; font-size: clamp(38px, 6vw, 62px); line-height: .95; }
 
 /* header row */
 .calendar-header-row {
@@ -258,4 +261,13 @@
   text-align: right;
   font-weight: 600;
   width: 100%;
+}
+
+@media (max-width: 620px) {
+  .calendar-header-row { align-items: flex-start; flex-direction: column; }
+  .calendar-create-btn { width: 100%; }
+  .calendar-card .fc-header-toolbar { flex-wrap: wrap; gap: 12px; }
+  .calendar-card .fc-header-toolbar .fc-toolbar-chunk:first-child { position: static; order: 2; width: 100%; justify-content: center; }
+  .fc .fc-toolbar-title { font-size: 22px !important; }
+  .calendar-time-row { flex-direction: column; }
 }

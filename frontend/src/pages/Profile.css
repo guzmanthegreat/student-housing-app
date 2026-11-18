@@ -443,3 +443,21 @@
 .cropper-zoom{ width:100%; display:block; margin:6px auto 14px; }
 
 .path-row{ display:grid; grid-template-columns: 1fr auto; gap:10px; }
+
+/* Profile keeps the playful quote, but behaves like a calm settings page. */
+.profile-page { min-height: calc(100dvh - 72px); height: auto; padding: 42px 18px 72px; align-items: flex-start; }
+.profile-card { width: min(1120px, 100%); height: auto; min-height: 0; padding: clamp(24px, 5vw, 56px); border: 1px solid rgba(197,232,121,.18); border-radius: var(--radius-lg); background: linear-gradient(145deg, #1f4229, var(--surface-deep)); box-shadow: var(--shadow); grid-template-columns: minmax(220px, 360px) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); }
+.profile-title { font-size: clamp(42px, 7vw, 78px); line-height: .9; text-shadow: none; }
+.profile-left, .profile-right { margin-top: 0; }
+.profile-right { align-self: center; }
+.info-row { transform: none; margin-bottom: 12px; }
+.info-box { padding: 18px 20px; min-height: 58px; border-radius: 14px; }
+.avatar { width: min(280px, 70vw); }
+.lips--tl { left: 22px; top: 20px; opacity: .5; }
+.lips--br { right: 22px; bottom: 10px; opacity: .35; }
+
+@media (max-width: 900px) {
+  .profile-card { grid-template-columns: 1fr; grid-template-areas: "title" "left" "right"; }
+  .profile-left { gap: 12px; }
+  .profile-right { width: 100%; }
+}
