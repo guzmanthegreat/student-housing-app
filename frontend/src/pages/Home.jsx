@@ -38,9 +38,8 @@ export default function Home() {
     <main className="home-page">
       <section className="home-hero">
         <div className="home-copy">
-          <p className="home-eyebrow">YOUR CAMPUS HOUSE, SORTED</p>
-          <h1>Everything your household needs to stay on top of.</h1>
-          <p className="home-subtitle">Roomies keeps chores, shared bills, and house plans in one simple place—so nobody has to ask, “Wait, who’s doing that?”</p>
+          <h1>Run your shared home without the chaos.</h1>
+          <p className="home-subtitle">Manage chores, split bills, and keep house plans in one place.</p>
         </div>
 
         <div className="home-board">
@@ -71,7 +70,7 @@ export default function Home() {
           ) : (
             <div className="submit-container">
               <Link className="submit primary" to="/signup">
-                Start
+                Create account
               </Link>
               <Link className="submit secondary" to="/login">Log in</Link>
             </div>
