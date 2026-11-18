@@ -203,7 +203,7 @@
 
 .calendar-form input:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(143, 188, 90, 0.3);
+  box-shadow: 0 0 0 2px rgba(255, 183, 3, 0.35);
 }
 
 .calendar-time-row {

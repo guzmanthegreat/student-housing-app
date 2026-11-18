@@ -126,8 +126,8 @@ export default function CalendarPage() {
             }
           }}
           eventDisplay="block"
-          eventBorderColor="#8fbc5a"
-          eventBackgroundColor="#8fbc5a"
+          eventBorderColor="#FFB703"
+          eventBackgroundColor="#FFB703"
           height="auto"
         />
       </div>

@@ -7,20 +7,20 @@
 }
 
 :root {
-  --bg: #17331f;
-  --surface: #294b31;
-  --surface-deep: #102619;
-  --accent: #6f9b63;
-  --primary: #c5e879;
-  --pink: #f1a7b8;
-  --ink: #193522;
-  --ink-soft: #49604b;
-  --paper: #fffaf0;
-  --paper-soft: #f5f0df;
-  --text: #f2f6df;
-  --text-muted: #b8c9a6;
-  --line: rgba(25, 53, 34, 0.16);
-  --shadow: 0 18px 45px rgba(6, 25, 12, 0.2);
+  --bg: #023047;
+  --surface: #219ebc;
+  --surface-deep: #023047;
+  --accent: #8ecae6;
+  --primary: #ffb703;
+  --warm: #fb8500;
+  --ink: #023047;
+  --ink-soft: #365b6a;
+  --paper: #fffdf7;
+  --paper-soft: #eaf7fc;
+  --text: #f4fbff;
+  --text-muted: #c2e5f1;
+  --line: rgba(2, 48, 71, 0.16);
+  --shadow: 0 18px 45px rgba(2, 29, 44, 0.28);
   --radius-lg: 26px;
   --radius-md: 16px;
 
@@ -74,7 +74,7 @@ button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 3px solid var(--pink);
+  outline: 3px solid var(--warm);
   outline-offset: 3px;
 }
 
