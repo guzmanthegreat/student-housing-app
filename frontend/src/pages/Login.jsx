@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 
 // Icons
@@ -70,9 +70,11 @@ export default function Login({ session, onLogin }) {
   return (
     <div className="gil-auth">
       <div className="container">
+        <Link className="auth-brand" to="/">Roomies</Link>
         <div className="header">
+          <p className="auth-kicker">Welcome back</p>
           <div className="text">{action}</div>
-          <div className="underline"></div>
+          <p className="auth-subtitle">Keep your house moving.</p>
         </div>
 
         <div className="inputs">
@@ -141,6 +143,15 @@ export default function Login({ session, onLogin }) {
             Log in
           </button>
         </div>
+        <p className="auth-switch">New to Roomies? <Link to="/signup">Create an account</Link></p>
+      </div>
+      <div className="auth-panel">
+        <p className="auth-panel-label">ROOMIES / 01</p>
+        <div>
+          <p className="auth-panel-kicker">Less chasing.<br />More living.</p>
+          <p className="auth-panel-copy">Chores, shared bills, and house plans in one place.</p>
+        </div>
+        <p className="auth-panel-footer">Your house, sorted.</p>
       </div>
     </div>
   );

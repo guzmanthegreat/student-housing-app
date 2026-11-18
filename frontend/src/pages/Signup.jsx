@@ -79,9 +79,11 @@ export default function Signup({ session, onLogin }) {
   return (
     <div className="jp-auth">
       <div className="container">
+        <a className="auth-brand" href="/">Roomies</a>
         <div className="header">
+          <p className="auth-kicker">Get started</p>
           <div className="text">{action}</div>
-          <div className="underline"></div>
+          <p className="auth-subtitle">Set up your shared home in a minute.</p>
         </div>
 
         <div className="inputs">
@@ -144,6 +146,15 @@ export default function Signup({ session, onLogin }) {
             Join
           </button>
         </div>
+        <p className="auth-switch">Already have an account? <a href="/login">Log in</a></p>
+      </div>
+      <div className="auth-panel">
+        <p className="auth-panel-label">ROOMIES / 01</p>
+        <div>
+          <p className="auth-panel-kicker">A better house<br />starts here.</p>
+          <p className="auth-panel-copy">Invite your roommates, split the work, and keep the peace.</p>
+        </div>
+        <p className="auth-panel-footer">Your house, sorted.</p>
       </div>
     </div>
   );
