@@ -33,7 +33,7 @@ export default function Navbar({ session, onLogout }) {
           </>
         ) : (
           <>
-            <Link to="/login" className="navbar-login">
+            <Link to="/login" className="navbar-login secondary-action">
               Login
             </Link>
           </>

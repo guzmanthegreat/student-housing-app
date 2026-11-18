@@ -78,6 +78,17 @@ textarea:focus-visible {
   outline-offset: 3px;
 }
 
+.secondary-action {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--text);
+}
+
+.secondary-action:hover {
+  background: var(--accent);
+  color: var(--ink);
+}
+
 * {
   box-sizing: border-box;
 }

@@ -72,7 +72,7 @@ export default function Home() {
               <Link className="submit primary" to="/signup">
                 Create account
               </Link>
-              <Link className="submit secondary" to="/login">Log in</Link>
+              <Link className="submit secondary secondary-action" to="/login">Log in</Link>
             </div>
           )}
         </div>
